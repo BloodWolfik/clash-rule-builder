@@ -54,14 +54,13 @@ body {
     color: #aaa;
     text-decoration: none;
     font-size: 14px;
-    transition: all 0.3s ease;
+    transition: none;
     margin-bottom: 4px;
 }
 
 .sidebar-link:hover {
     background: #1e1e1e;
     color: #fff;
-    transform: translateX(4px);
 }
 
 .sidebar-link .sidebar-icon {
@@ -99,13 +98,7 @@ h1 {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-size: 300% 300%;
-    animation: gradientMove 4s ease infinite;
-}
-
-@keyframes gradientMove {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
+    /* Анимация градиента убрана */
 }
 
 header p {
@@ -114,7 +107,7 @@ header p {
     font-size: 15px;
 }
 
-/* Селектор автора — теперь по центру */
+/* Селектор автора — по центру */
 .selector-group {
     max-width: 600px;
     margin: 0 auto 24px auto;
@@ -138,7 +131,7 @@ header p {
     color: #fff;
     font-size: 16px;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: none;
     appearance: none;
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23888' stroke-width='1.5' fill='none'/%3E%3C/svg%3E");
     background-repeat: no-repeat;
@@ -172,13 +165,12 @@ header p {
     color: #888;
     font-size: 13px;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: none;
 }
 
 .cat-btn:hover {
     border-color: #7b2ffc;
     color: #fff;
-    transform: translateY(-1px);
 }
 
 .cat-btn.active {
@@ -202,7 +194,7 @@ header p {
     padding: 16px 12px;
     border-radius: 14px;
     border: 1px solid #2a2a2a;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: none;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -220,12 +212,11 @@ header p {
     bottom: 0;
     background: linear-gradient(135deg, rgba(123, 47, 252, 0.05), rgba(0, 212, 255, 0.05));
     opacity: 0;
-    transition: opacity 0.3s ease;
+    transition: none;
 }
 
 .rule-card:hover {
     border-color: #7b2ffc;
-    transform: translateY(-4px);
     box-shadow: 0 8px 30px rgba(123, 47, 252, 0.15);
 }
 
@@ -319,7 +310,7 @@ header p {
     font-size: 14px;
     font-weight: 600;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: none;
     background: #1e1e1e;
     color: #ccc;
     border: 1px solid #2a2a2a;
@@ -327,7 +318,6 @@ header p {
 
 .btn:hover {
     background: #2a2a2a;
-    transform: scale(1.02);
     border-color: #7b2ffc;
 }
 
@@ -354,12 +344,11 @@ header p {
     font-size: 18px;
     font-weight: 700;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: none;
     letter-spacing: 0.5px;
 }
 
 .download-btn:hover {
-    transform: scale(1.02);
     box-shadow: 0 0 40px rgba(123, 47, 252, 0.4);
 }
 
@@ -452,40 +441,3 @@ header p {
         max-width: 100%;
     }
 }
-
-/* ===== АНИМАЦИЯ ===== */
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-.rule-card {
-    animation: fadeInUp 0.4s ease forwards;
-}
-
-.rule-card:nth-child(1) { animation-delay: 0.02s; }
-.rule-card:nth-child(2) { animation-delay: 0.04s; }
-.rule-card:nth-child(3) { animation-delay: 0.06s; }
-.rule-card:nth-child(4) { animation-delay: 0.08s; }
-.rule-card:nth-child(5) { animation-delay: 0.10s; }
-.rule-card:nth-child(6) { animation-delay: 0.12s; }
-.rule-card:nth-child(7) { animation-delay: 0.14s; }
-.rule-card:nth-child(8) { animation-delay: 0.16s; }
-.rule-card:nth-child(9) { animation-delay: 0.18s; }
-.rule-card:nth-child(10) { animation-delay: 0.20s; }
-.rule-card:nth-child(11) { animation-delay: 0.22s; }
-.rule-card:nth-child(12) { animation-delay: 0.24s; }
-.rule-card:nth-child(13) { animation-delay: 0.26s; }
-.rule-card:nth-child(14) { animation-delay: 0.28s; }
-.rule-card:nth-child(15) { animation-delay: 0.30s; }
-.rule-card:nth-child(16) { animation-delay: 0.32s; }
-.rule-card:nth-child(17) { animation-delay: 0.34s; }
-.rule-card:nth-child(18) { animation-delay: 0.36s; }
-.rule-card:nth-child(19) { animation-delay: 0.38s; }
-.rule-card:nth-child(20) { animation-delay: 0.40s; }
