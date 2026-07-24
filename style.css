@@ -10,8 +10,9 @@ body {
     color: #e0e0e0;
     min-height: 100vh;
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;  /* ← теперь всё прижато к левому краю */
     padding: 20px;
+    padding-left: 60px;
     gap: 24px;
 }
 
