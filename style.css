@@ -16,7 +16,7 @@ body {
 }
 
 .container {
-    max-width: 800px;
+    max-width: 1200px;
     width: 100%;
     background: #1a1a1a;
     padding: 40px;
@@ -39,14 +39,14 @@ p {
 
 .rules-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-    gap: 16px;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 12px;
     margin-bottom: 30px;
 }
 
 .rule-card {
     background: #252525;
-    padding: 20px;
+    padding: 16px 12px;
     border-radius: 12px;
     border: 1px solid #333;
     transition: all 0.3s ease;
@@ -62,28 +62,22 @@ p {
 }
 
 .rule-icon {
-    font-size: 36px;
-    margin-bottom: 8px;
+    font-size: 28px;
+    margin-bottom: 4px;
 }
 
 .rule-name {
     font-weight: 600;
-    font-size: 16px;
-    margin-bottom: 4px;
-}
-
-.rule-desc {
-    font-size: 12px;
-    color: #888;
-    margin-bottom: 12px;
+    font-size: 13px;
+    margin-bottom: 8px;
 }
 
 /* Toggle Switch */
 .switch {
     position: relative;
     display: inline-block;
-    width: 50px;
-    height: 28px;
+    width: 40px;
+    height: 22px;
 }
 
 .switch input {
@@ -101,16 +95,16 @@ p {
     bottom: 0;
     background: #444;
     transition: .3s;
-    border-radius: 28px;
+    border-radius: 22px;
 }
 
 .slider:before {
     content: "";
     position: absolute;
-    height: 20px;
-    width: 20px;
-    left: 4px;
-    bottom: 4px;
+    height: 16px;
+    width: 16px;
+    left: 3px;
+    bottom: 3px;
     background: white;
     transition: .3s;
     border-radius: 50%;
@@ -121,7 +115,31 @@ p {
 }
 
 .switch input:checked + .slider:before {
-    transform: translateX(22px);
+    transform: translateX(18px);
+}
+
+.controls {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 20px;
+    justify-content: center;
+}
+
+.btn {
+    padding: 10px 24px;
+    border: none;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background: #333;
+    color: #fff;
+}
+
+.btn:hover {
+    transform: scale(1.02);
+    background: #444;
 }
 
 .download-btn {
