@@ -15,7 +15,7 @@ body {
     gap: 24px;
 }
 
-/* ===== САЙДБАР ===== */
+/* ===== САЙДБАР — ПРИЖИМАЕМ К ЛЕВОМУ КРАЮ ===== */
 .sidebar {
     width: 260px;
     flex-shrink: 0;
@@ -24,6 +24,9 @@ body {
     align-self: flex-start;
     max-height: calc(100vh - 40px);
     overflow-y: auto;
+    /* ПРИЖИМАЕМ К ЛЕВОМУ КРАЮ */
+    margin-right: auto;
+    margin-left: 0;
 }
 
 .sidebar-inner {
@@ -70,11 +73,14 @@ body {
     flex-shrink: 0;
 }
 
-/* ===== ОСНОВНОЙ КОНТЕНТ ===== */
+/* ===== ОСНОВНОЙ КОНТЕНТ — ПО ЦЕНТРУ ===== */
 .main-content {
     flex: 1;
     max-width: 1200px;
     min-width: 0;
+    /* Центрируем */
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .container {
@@ -97,8 +103,6 @@ h1 {
     background: linear-gradient(135deg, #00d4ff, #7b2ffc, #ff6fd8);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    background-size: 300% 300%;
-    /* Анимация градиента убрана */
 }
 
 header p {
@@ -180,7 +184,7 @@ header p {
     box-shadow: 0 4px 20px rgba(123, 47, 252, 0.3);
 }
 
-/* Сетка правил — по центру */
+/* Сетка правил */
 .rules-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
@@ -365,6 +369,8 @@ header p {
         width: 100%;
         position: static;
         max-height: none;
+        margin-right: 0;
+        margin-left: 0;
     }
 
     .sidebar-inner {
@@ -395,6 +401,8 @@ header p {
 
     .main-content {
         max-width: 100%;
+        margin-left: 0;
+        margin-right: 0;
     }
 
     .selector-group {
