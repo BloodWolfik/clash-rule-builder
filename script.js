@@ -1,6 +1,34 @@
+// ============================================
+// АВТОРЫ ПРАВИЛ
+// ============================================
+const AUTHORS = {
+    hydraponique: {
+        name: 'RoscomVPN (hydraponique)',
+        baseUrl: 'https://cdn.jsdelivr.net/gh/hydraponique/roscomvpn-geosite/release/mihomo/',
+        description: 'Крупнейший набор правил для рунета'
+    },
+    loyalsoldier: {
+        name: 'Loyalsoldier (Clash)',
+        baseUrl: 'https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/',
+        description: 'Классический набор правил Clash'
+    },
+    dler: {
+        name: 'Dler Cloud',
+        baseUrl: 'https://cdn.jsdelivr.net/gh/DlerCloud/Rules@main/',
+        description: 'Правила от Dler Cloud'
+    },
+    mihomo: {
+        name: 'Mihomo Official',
+        baseUrl: 'https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@mihomo/',
+        description: 'Официальные правила Mihomo'
+    }
+};
+
+// ============================================
 // ПРАВИЛА С КАТЕГОРИЯМИ
-const ALL_RULES = {
-    // 🌐 Соцсети
+// ============================================
+const RULES = {
+    // 🌐 Соцсети и мессенджеры
     facebook: { name: 'Facebook', icon: '👤', category: 'social' },
     instagram: { name: 'Instagram', icon: '📸', category: 'social' },
     twitter: { name: 'Twitter/X', icon: '🐦', category: 'social' },
@@ -15,7 +43,7 @@ const ALL_RULES = {
     linkedin: { name: 'LinkedIn', icon: '💼', category: 'social' },
     pinterest: { name: 'Pinterest', icon: '📌', category: 'social' },
 
-    // 🎬 Стриминг
+    // 🎬 Стриминг и видео
     youtube: { name: 'YouTube', icon: '▶️', category: 'streaming' },
     netflix: { name: 'Netflix', icon: '🎥', category: 'streaming' },
     disney: { name: 'Disney+', icon: '🏰', category: 'streaming' },
@@ -35,7 +63,7 @@ const ALL_RULES = {
     ubisoft: { name: 'Ubisoft', icon: '🎮', category: 'games' },
     unity: { name: 'Unity', icon: '🎮', category: 'games' },
 
-    // 💼 Работа
+    // 💼 Работа и продуктивность
     microsoft: { name: 'Microsoft', icon: '🪟', category: 'work' },
     office: { name: 'Office', icon: '📄', category: 'work' },
     onedrive: { name: 'OneDrive', icon: '☁️', category: 'work' },
@@ -105,7 +133,9 @@ const ALL_RULES = {
     zoom: { name: 'Zoom', icon: '📹', category: 'other' }
 };
 
-// Категории с иконками и названиями
+// ============================================
+// КАТЕГОРИИ
+// ============================================
 const CATEGORIES = {
     all: { label: 'Все', icon: '📋' },
     social: { label: 'Соцсети', icon: '🌐' },
@@ -121,9 +151,15 @@ const CATEGORIES = {
     other: { label: 'Другое', icon: '📦' }
 };
 
+// ============================================
+// СОСТОЯНИЕ
+// ============================================
+let currentAuthor = 'hydraponique';
 let currentCategory = 'all';
 
-// Создание карточки
+// ============================================
+// ФУНКЦИИ
+// ============================================
 function createRuleCard(key, rule) {
     const card = document.createElement('div');
     card.className = 'rule-card';
@@ -140,99 +176,77 @@ function createRuleCard(key, rule) {
     return card;
 }
 
-// Фильтрация по категории
-function filterRules(category) {
-    const cards = document.querySelectorAll('.rule-card');
-    cards.forEach(card => {
-        if (category === 'all' || card.dataset.category === category) {
-            card.style.display = 'flex';
-        } else {
-            card.style.display = 'none';
-        }
+function populateAuthorSelect() {
+    const select = document.getElementById('authorSelect');
+    select.innerHTML = '';
+    Object.keys(AUTHORS).forEach(key => {
+        const option = document.createElement('option');
+        option.value = key;
+        option.textContent = `${AUTHORS[key].name}`;
+        if (key === currentAuthor) option.selected = true;
+        select.appendChild(option);
     });
-    updateSelectedCount();
 }
 
-// Обновление счетчика выбранных
-function updateSelectedCount() {
-    const visible = document.querySelectorAll('.rule-card[style*="display: flex"], .rule-card:not([style*="display: none"])');
-    const checked = document.querySelectorAll('.rule-card input[type="checkbox"]:checked');
-    const visibleChecked = Array.from(checked).filter(cb => {
-        const card = cb.closest('.rule-card');
-        return card.style.display !== 'none';
-    });
-    document.getElementById('selectedCount').textContent = `Выбрано: ${visibleChecked.length} из ${visible.length}`;
-}
-
-// Генерация всех карточек
-document.addEventListener('DOMContentLoaded', () => {
-    const grid = document.getElementById('rulesGrid');
-    const sortedKeys = Object.keys(ALL_RULES).sort();
-    
-    sortedKeys.forEach(key => {
-        grid.appendChild(createRuleCard(key, ALL_RULES[key]));
-    });
-
-    // Кнопки категорий
-    document.querySelectorAll('.cat-btn').forEach(btn => {
+function populateCategories() {
+    const container = document.getElementById('categories');
+    container.innerHTML = '';
+    Object.keys(CATEGORIES).forEach(key => {
+        const btn = document.createElement('button');
+        btn.className = `cat-btn ${key === currentCategory ? 'active' : ''}`;
+        btn.dataset.category = key;
+        btn.textContent = `${CATEGORIES[key].icon} ${CATEGORIES[key].label}`;
         btn.addEventListener('click', function() {
             document.querySelectorAll('.cat-btn').forEach(b => b.classList.remove('active'));
             this.classList.add('active');
             currentCategory = this.dataset.category;
-            filterRules(currentCategory);
+            filterRules();
         });
+        container.appendChild(btn);
     });
+}
 
-    // Кнопка "Выбрать все" (только видимые)
-    document.getElementById('selectAllBtn').addEventListener('click', () => {
-        document.querySelectorAll('.rule-card input[type="checkbox"]').forEach(cb => {
-            const card = cb.closest('.rule-card');
-            if (card.style.display !== 'none') {
-                cb.checked = true;
-            }
-        });
-        updateSelectedCount();
+function renderRules() {
+    const grid = document.getElementById('rulesGrid');
+    grid.innerHTML = '';
+    const sortedKeys = Object.keys(RULES).sort();
+    sortedKeys.forEach(key => {
+        grid.appendChild(createRuleCard(key, RULES[key]));
     });
+    filterRules();
+    updateSelectedCount();
+}
 
-    // Кнопка "Снять все" (только видимые)
-    document.getElementById('deselectAllBtn').addEventListener('click', () => {
-        document.querySelectorAll('.rule-card input[type="checkbox"]').forEach(cb => {
-            const card = cb.closest('.rule-card');
-            if (card.style.display !== 'none') {
-                cb.checked = false;
-            }
-        });
-        updateSelectedCount();
+function filterRules() {
+    const cards = document.querySelectorAll('.rule-card');
+    cards.forEach(card => {
+        const category = card.dataset.category;
+        const visible = currentCategory === 'all' || category === currentCategory;
+        card.classList.toggle('hidden', !visible);
     });
+    updateSelectedCount();
+}
 
-    // Обновление счетчика при клике на чекбокс
-    document.addEventListener('change', (e) => {
-        if (e.target.closest('.switch')) {
-            updateSelectedCount();
-        }
-    });
-
-    // Кнопка скачивания
-    document.getElementById('downloadBtn').addEventListener('click', downloadConfig);
-    
-    // Инициализация
-    filterRules('all');
-});
+function updateSelectedCount() {
+    const visible = document.querySelectorAll('.rule-card:not(.hidden)');
+    const checked = document.querySelectorAll('.rule-card:not(.hidden) input[type="checkbox"]:checked');
+    document.getElementById('selectedCount').textContent = `Выбрано: ${checked.length} из ${visible.length}`;
+}
 
 function downloadConfig() {
-    const checkboxes = document.querySelectorAll('.rule-card input[type="checkbox"]');
+    const checkboxes = document.querySelectorAll('.rule-card:not(.hidden) input[type="checkbox"]');
     const selectedRules = [];
+    const author = AUTHORS[currentAuthor];
     
     checkboxes.forEach((checkbox) => {
         if (checkbox.checked) {
             const card = checkbox.closest('.rule-card');
             const key = card.dataset.rule;
-            const rule = ALL_RULES[key];
             selectedRules.push(`  ${key}:
     type: http
     behavior: domain
     format: mrs
-    url: https://cdn.jsdelivr.net/gh/hydraponique/roscomvpn-geosite/release/mihomo/${key}.mrs
+    url: ${author.baseUrl}${key}.mrs
     path: ./ruleset/${key}.mrs
     interval: 86400`);
         }
@@ -244,6 +258,7 @@ function downloadConfig() {
     }
 
     const header = `# Mihomo Ruleset
+# Автор: ${author.name}
 # Сгенерировано: ${new Date().toLocaleString()}
 # Всего правил: ${selectedRules.length}
 
@@ -261,3 +276,39 @@ ${selectedRules.join('\n')}
     document.body.removeChild(a);
     URL.revokeObjectURL(url);
 }
+
+// ============================================
+// ИНИЦИАЛИЗАЦИЯ
+// ============================================
+document.addEventListener('DOMContentLoaded', () => {
+    populateAuthorSelect();
+    populateCategories();
+    renderRules();
+
+    // Смена автора
+    document.getElementById('authorSelect').addEventListener('change', function() {
+        currentAuthor = this.value;
+        renderRules();
+    });
+
+    // Кнопки "Выбрать все" / "Снять все"
+    document.getElementById('selectAllBtn').addEventListener('click', () => {
+        document.querySelectorAll('.rule-card:not(.hidden) input[type="checkbox"]').forEach(cb => cb.checked = true);
+        updateSelectedCount();
+    });
+
+    document.getElementById('deselectAllBtn').addEventListener('click', () => {
+        document.querySelectorAll('.rule-card:not(.hidden) input[type="checkbox"]').forEach(cb => cb.checked = false);
+        updateSelectedCount();
+    });
+
+    // Обновление счетчика
+    document.addEventListener('change', (e) => {
+        if (e.target.closest('.switch')) {
+            updateSelectedCount();
+        }
+    });
+
+    // Кнопка скачивания
+    document.getElementById('downloadBtn').addEventListener('click', downloadConfig);
+});
