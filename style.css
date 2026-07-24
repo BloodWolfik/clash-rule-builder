@@ -10,13 +10,14 @@ body {
     color: #e0e0e0;
     min-height: 100vh;
     display: flex;
+    justify-content: center;
     padding: 20px;
-    gap: 20px;
+    gap: 24px;
 }
 
 /* ===== САЙДБАР ===== */
 .sidebar {
-    width: 220px;
+    width: 260px;
     flex-shrink: 0;
     position: sticky;
     top: 20px;
@@ -29,7 +30,7 @@ body {
     background: #121212;
     border: 1px solid #2a2a2a;
     border-radius: 16px;
-    padding: 20px 16px;
+    padding: 24px 18px;
     box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
 }
 
@@ -47,7 +48,7 @@ body {
 .sidebar-link {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 12px;
     padding: 10px 12px;
     border-radius: 10px;
     color: #aaa;
@@ -73,11 +74,11 @@ body {
 /* ===== ОСНОВНОЙ КОНТЕНТ ===== */
 .main-content {
     flex: 1;
+    max-width: 1200px;
     min-width: 0;
 }
 
 .container {
-    max-width: 1200px;
     width: 100%;
     background: #121212;
     padding: 40px;
@@ -364,6 +365,7 @@ header p {
 @media (max-width: 1024px) {
     body {
         flex-direction: column;
+        align-items: center;
         padding: 16px;
         gap: 16px;
     }
@@ -398,6 +400,10 @@ header p {
     .sidebar-link .sidebar-icon {
         font-size: 16px;
         width: 24px;
+    }
+
+    .main-content {
+        max-width: 100%;
     }
 }
 
