@@ -1,104 +1,200 @@
 // ============================================
-// АВТОР (только hydraponique)
+// АВТОРЫ
 // ============================================
-const AUTHOR = {
-    name: 'RoscomVPN (hydraponique)',
-    baseUrl: 'https://cdn.jsdelivr.net/gh/hydraponique/roscomvpn-geosite/release/mihomo/',
-    description: 'Крупнейший набор правил для рунета'
+const AUTHORS = {
+    hydraponique: {
+        name: 'RoscomVPN (hydraponique)',
+        baseUrl: 'https://cdn.jsdelivr.net/gh/hydraponique/roscomvpn-geosite/release/mihomo/',
+        description: 'Крупнейший набор правил для рунета'
+    },
+    metacubex: {
+        name: 'MetaCubeX (Mihomo)',
+        baseUrl: 'https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@mihomo/',
+        description: 'Официальные правила от MetaCubeX для Mihomo'
+    }
 };
 
 // ============================================
-// ПРАВИЛА
+// ПРАВИЛА ДЛЯ КАЖДОГО АВТОРА
 // ============================================
-const RULES = {
-    microsoft: { name: 'Microsoft', icon: '🪟', category: 'work' },
-    'category-ads': { name: 'Блокировка рекламы', icon: '🚫', category: 'other' },
-    github: { name: 'GitHub', icon: '🐙', category: 'it' },
-    youtube: { name: 'YouTube', icon: '▶️', category: 'streaming' },
-    telegram: { name: 'Telegram', icon: '✈️', category: 'social' },
-    spotify: { name: 'Spotify', icon: '🎶', category: 'music' },
-    netflix: { name: 'Netflix', icon: '🎥', category: 'streaming' },
-    discord: { name: 'Discord', icon: '💬', category: 'social' },
-    steam: { name: 'Steam', icon: '🎮', category: 'games' },
-    google: { name: 'Google', icon: '🔴', category: 'it' },
-    facebook: { name: 'Facebook', icon: '👤', category: 'social' },
-    instagram: { name: 'Instagram', icon: '📸', category: 'social' },
-    twitter: { name: 'Twitter/X', icon: '🐦', category: 'social' },
-    twitch: { name: 'Twitch', icon: '🎮', category: 'streaming' },
-    vk: { name: 'VK', icon: '💙', category: 'social' },
-    apple: { name: 'Apple', icon: '🍎', category: 'other' },
-    amazon: { name: 'Amazon', icon: '🛒', category: 'shopping' },
-    disney: { name: 'Disney+', icon: '🏰', category: 'streaming' },
-    epic: { name: 'Epic Games', icon: '🎮', category: 'games' },
-    playstation: { name: 'PlayStation', icon: '🎮', category: 'games' },
-    xbox: { name: 'Xbox', icon: '🎮', category: 'games' },
-    tiktok: { name: 'TikTok', icon: '🎵', category: 'social' },
-    reddit: { name: 'Reddit', icon: '🤖', category: 'social' },
-    linkedin: { name: 'LinkedIn', icon: '💼', category: 'social' },
-    whatsapp: { name: 'WhatsApp', icon: '💬', category: 'social' },
-    snapchat: { name: 'Snapchat', icon: '👻', category: 'social' },
-    pinterest: { name: 'Pinterest', icon: '📌', category: 'social' },
-    tumblr: { name: 'Tumblr', icon: '📝', category: 'social' },
-    soundcloud: { name: 'SoundCloud', icon: '🎵', category: 'music' },
-    dailymotion: { name: 'Dailymotion', icon: '🎬', category: 'streaming' },
-    hbo: { name: 'HBO', icon: '🎬', category: 'streaming' },
-    hulu: { name: 'Hulu', icon: '📺', category: 'streaming' },
-    bilibili: { name: 'Bilibili', icon: '📺', category: 'streaming' },
-    kick: { name: 'Kick', icon: '🦵', category: 'streaming' },
-    nintendo: { name: 'Nintendo', icon: '🎮', category: 'games' },
-    ubisoft: { name: 'Ubisoft', icon: '🎮', category: 'games' },
-    unity: { name: 'Unity', icon: '🎮', category: 'games' },
-    office: { name: 'Office', icon: '📄', category: 'work' },
-    onedrive: { name: 'OneDrive', icon: '☁️', category: 'work' },
-    'google-drive': { name: 'Google Drive', icon: '📂', category: 'work' },
-    dropbox: { name: 'Dropbox', icon: '📁', category: 'work' },
-    notion: { name: 'Notion', icon: '📝', category: 'work' },
-    evernote: { name: 'Evernote', icon: '📓', category: 'work' },
-    figma: { name: 'Figma', icon: '🎨', category: 'work' },
-    jetbrains: { name: 'JetBrains', icon: '💻', category: 'work' },
-    linear: { name: 'Linear', icon: '📊', category: 'work' },
-    grammarly: { name: 'Grammarly', icon: '✍️', category: 'work' },
-    gitlab: { name: 'GitLab', icon: '🦊', category: 'it' },
-    docker: { name: 'Docker', icon: '🐳', category: 'it' },
-    npm: { name: 'npm', icon: '📦', category: 'it' },
-    cloudflare: { name: 'Cloudflare', icon: '☁️', category: 'it' },
-    vercel: { name: 'Vercel', icon: '▲', category: 'it' },
-    openai: { name: 'OpenAI', icon: '🤖', category: 'it' },
-    oracle: { name: 'Oracle', icon: '🔶', category: 'it' },
-    jfrog: { name: 'JFrog', icon: '🐸', category: 'it' },
-    googleapis: { name: 'Google APIs', icon: '🔧', category: 'it' },
-    jsdelivr: { name: 'jsDelivr', icon: '📦', category: 'it' },
-    ebay: { name: 'eBay', icon: '🛍️', category: 'shopping' },
-    paypal: { name: 'PayPal', icon: '💳', category: 'shopping' },
-    patreon: { name: 'Patreon', icon: '❤️', category: 'shopping' },
-    proton: { name: 'Proton', icon: '🔒', category: 'security' },
-    dns: { name: 'DNS', icon: '🌐', category: 'security' },
-    icloud: { name: 'iCloud', icon: '☁️', category: 'security' },
-    wikipedia: { name: 'Wikipedia', icon: '📚', category: 'education' },
-    duolingo: { name: 'Duolingo', icon: '🦉', category: 'education' },
-    blogger: { name: 'Blogger', icon: '📝', category: 'dev' },
-    wordpress: { name: 'WordPress', icon: '📝', category: 'dev' },
-    jquery: { name: 'jQuery', icon: '⚡', category: 'dev' },
-    'google-play': { name: 'Google Play', icon: '📱', category: 'dev' },
-    adobe: { name: 'Adobe', icon: '🎨', category: 'other' },
-    bing: { name: 'Bing', icon: '🔍', category: 'other' },
-    bitcoin: { name: 'Bitcoin', icon: '₿', category: 'other' },
-    bluray: { name: 'Blu-ray', icon: '💿', category: 'other' },
-    chatgpt: { name: 'ChatGPT', icon: '🤖', category: 'other' },
-    gopro: { name: 'GoPro', icon: '📷', category: 'other' },
-    imgur: { name: 'Imgur', icon: '🖼️', category: 'other' },
-    jio: { name: 'Jio', icon: '📶', category: 'other' },
-    kindle: { name: 'Kindle', icon: '📚', category: 'other' },
-    live: { name: 'Live', icon: '🔴', category: 'other' },
-    nvidia: { name: 'NVIDIA', icon: '🟢', category: 'other' },
-    outlook: { name: 'Outlook', icon: '✉️', category: 'other' },
-    yahoo: { name: 'Yahoo', icon: '🔴', category: 'other' },
-    yandex: { name: 'Yandex', icon: '🟡', category: 'other' },
-    zoom: { name: 'Zoom', icon: '📹', category: 'other' }
+const RULES_BY_AUTHOR = {
+    // ----- hydraponique -----
+    hydraponique: {
+        microsoft: { name: 'Microsoft', icon: '🪟', category: 'work' },
+        'category-ads': { name: 'Блокировка рекламы', icon: '🚫', category: 'other' },
+        github: { name: 'GitHub', icon: '🐙', category: 'it' },
+        youtube: { name: 'YouTube', icon: '▶️', category: 'streaming' },
+        telegram: { name: 'Telegram', icon: '✈️', category: 'social' },
+        spotify: { name: 'Spotify', icon: '🎶', category: 'music' },
+        netflix: { name: 'Netflix', icon: '🎥', category: 'streaming' },
+        discord: { name: 'Discord', icon: '💬', category: 'social' },
+        steam: { name: 'Steam', icon: '🎮', category: 'games' },
+        google: { name: 'Google', icon: '🔴', category: 'it' },
+        facebook: { name: 'Facebook', icon: '👤', category: 'social' },
+        instagram: { name: 'Instagram', icon: '📸', category: 'social' },
+        twitter: { name: 'Twitter/X', icon: '🐦', category: 'social' },
+        twitch: { name: 'Twitch', icon: '🎮', category: 'streaming' },
+        vk: { name: 'VK', icon: '💙', category: 'social' },
+        apple: { name: 'Apple', icon: '🍎', category: 'other' },
+        amazon: { name: 'Amazon', icon: '🛒', category: 'shopping' },
+        disney: { name: 'Disney+', icon: '🏰', category: 'streaming' },
+        epic: { name: 'Epic Games', icon: '🎮', category: 'games' },
+        playstation: { name: 'PlayStation', icon: '🎮', category: 'games' },
+        xbox: { name: 'Xbox', icon: '🎮', category: 'games' },
+        tiktok: { name: 'TikTok', icon: '🎵', category: 'social' },
+        reddit: { name: 'Reddit', icon: '🤖', category: 'social' },
+        linkedin: { name: 'LinkedIn', icon: '💼', category: 'social' },
+        whatsapp: { name: 'WhatsApp', icon: '💬', category: 'social' },
+        snapchat: { name: 'Snapchat', icon: '👻', category: 'social' },
+        pinterest: { name: 'Pinterest', icon: '📌', category: 'social' },
+        tumblr: { name: 'Tumblr', icon: '📝', category: 'social' },
+        soundcloud: { name: 'SoundCloud', icon: '🎵', category: 'music' },
+        dailymotion: { name: 'Dailymotion', icon: '🎬', category: 'streaming' },
+        hbo: { name: 'HBO', icon: '🎬', category: 'streaming' },
+        hulu: { name: 'Hulu', icon: '📺', category: 'streaming' },
+        bilibili: { name: 'Bilibili', icon: '📺', category: 'streaming' },
+        kick: { name: 'Kick', icon: '🦵', category: 'streaming' },
+        nintendo: { name: 'Nintendo', icon: '🎮', category: 'games' },
+        ubisoft: { name: 'Ubisoft', icon: '🎮', category: 'games' },
+        unity: { name: 'Unity', icon: '🎮', category: 'games' },
+        office: { name: 'Office', icon: '📄', category: 'work' },
+        onedrive: { name: 'OneDrive', icon: '☁️', category: 'work' },
+        'google-drive': { name: 'Google Drive', icon: '📂', category: 'work' },
+        dropbox: { name: 'Dropbox', icon: '📁', category: 'work' },
+        notion: { name: 'Notion', icon: '📝', category: 'work' },
+        evernote: { name: 'Evernote', icon: '📓', category: 'work' },
+        figma: { name: 'Figma', icon: '🎨', category: 'work' },
+        jetbrains: { name: 'JetBrains', icon: '💻', category: 'work' },
+        linear: { name: 'Linear', icon: '📊', category: 'work' },
+        grammarly: { name: 'Grammarly', icon: '✍️', category: 'work' },
+        gitlab: { name: 'GitLab', icon: '🦊', category: 'it' },
+        docker: { name: 'Docker', icon: '🐳', category: 'it' },
+        npm: { name: 'npm', icon: '📦', category: 'it' },
+        cloudflare: { name: 'Cloudflare', icon: '☁️', category: 'it' },
+        vercel: { name: 'Vercel', icon: '▲', category: 'it' },
+        openai: { name: 'OpenAI', icon: '🤖', category: 'it' },
+        oracle: { name: 'Oracle', icon: '🔶', category: 'it' },
+        jfrog: { name: 'JFrog', icon: '🐸', category: 'it' },
+        googleapis: { name: 'Google APIs', icon: '🔧', category: 'it' },
+        jsdelivr: { name: 'jsDelivr', icon: '📦', category: 'it' },
+        ebay: { name: 'eBay', icon: '🛍️', category: 'shopping' },
+        paypal: { name: 'PayPal', icon: '💳', category: 'shopping' },
+        patreon: { name: 'Patreon', icon: '❤️', category: 'shopping' },
+        proton: { name: 'Proton', icon: '🔒', category: 'security' },
+        dns: { name: 'DNS', icon: '🌐', category: 'security' },
+        icloud: { name: 'iCloud', icon: '☁️', category: 'security' },
+        wikipedia: { name: 'Wikipedia', icon: '📚', category: 'education' },
+        duolingo: { name: 'Duolingo', icon: '🦉', category: 'education' },
+        blogger: { name: 'Blogger', icon: '📝', category: 'dev' },
+        wordpress: { name: 'WordPress', icon: '📝', category: 'dev' },
+        jquery: { name: 'jQuery', icon: '⚡', category: 'dev' },
+        'google-play': { name: 'Google Play', icon: '📱', category: 'dev' },
+        adobe: { name: 'Adobe', icon: '🎨', category: 'other' },
+        bing: { name: 'Bing', icon: '🔍', category: 'other' },
+        bitcoin: { name: 'Bitcoin', icon: '₿', category: 'other' },
+        bluray: { name: 'Blu-ray', icon: '💿', category: 'other' },
+        chatgpt: { name: 'ChatGPT', icon: '🤖', category: 'other' },
+        gopro: { name: 'GoPro', icon: '📷', category: 'other' },
+        imgur: { name: 'Imgur', icon: '🖼️', category: 'other' },
+        jio: { name: 'Jio', icon: '📶', category: 'other' },
+        kindle: { name: 'Kindle', icon: '📚', category: 'other' },
+        live: { name: 'Live', icon: '🔴', category: 'other' },
+        nvidia: { name: 'NVIDIA', icon: '🟢', category: 'other' },
+        outlook: { name: 'Outlook', icon: '✉️', category: 'other' },
+        yahoo: { name: 'Yahoo', icon: '🔴', category: 'other' },
+        yandex: { name: 'Yandex', icon: '🟡', category: 'other' },
+        zoom: { name: 'Zoom', icon: '📹', category: 'other' }
+    },
+
+    // ----- MetaCubeX -----
+    metacubex: {
+        google: { name: 'Google', icon: '🔴', category: 'it' },
+        youtube: { name: 'YouTube', icon: '▶️', category: 'streaming' },
+        netflix: { name: 'Netflix', icon: '🎥', category: 'streaming' },
+        spotify: { name: 'Spotify', icon: '🎶', category: 'music' },
+        telegram: { name: 'Telegram', icon: '✈️', category: 'social' },
+        steam: { name: 'Steam', icon: '🎮', category: 'games' },
+        github: { name: 'GitHub', icon: '🐙', category: 'it' },
+        discord: { name: 'Discord', icon: '💬', category: 'social' },
+        twitch: { name: 'Twitch', icon: '🎮', category: 'streaming' },
+        tiktok: { name: 'TikTok', icon: '🎵', category: 'social' },
+        facebook: { name: 'Facebook', icon: '👤', category: 'social' },
+        instagram: { name: 'Instagram', icon: '📸', category: 'social' },
+        twitter: { name: 'Twitter/X', icon: '🐦', category: 'social' },
+        reddit: { name: 'Reddit', icon: '🤖', category: 'social' },
+        linkedin: { name: 'LinkedIn', icon: '💼', category: 'social' },
+        whatsapp: { name: 'WhatsApp', icon: '💬', category: 'social' },
+        snapchat: { name: 'Snapchat', icon: '👻', category: 'social' },
+        pinterest: { name: 'Pinterest', icon: '📌', category: 'social' },
+        tumblr: { name: 'Tumblr', icon: '📝', category: 'social' },
+        soundcloud: { name: 'SoundCloud', icon: '🎵', category: 'music' },
+        dailymotion: { name: 'Dailymotion', icon: '🎬', category: 'streaming' },
+        hbo: { name: 'HBO', icon: '🎬', category: 'streaming' },
+        hulu: { name: 'Hulu', icon: '📺', category: 'streaming' },
+        disney: { name: 'Disney+', icon: '🏰', category: 'streaming' },
+        epic: { name: 'Epic Games', icon: '🎮', category: 'games' },
+        playstation: { name: 'PlayStation', icon: '🎮', category: 'games' },
+        xbox: { name: 'Xbox', icon: '🎮', category: 'games' },
+        nintendo: { name: 'Nintendo', icon: '🎮', category: 'games' },
+        ubisoft: { name: 'Ubisoft', icon: '🎮', category: 'games' },
+        unity: { name: 'Unity', icon: '🎮', category: 'games' },
+        microsoft: { name: 'Microsoft', icon: '🪟', category: 'work' },
+        office: { name: 'Office', icon: '📄', category: 'work' },
+        onedrive: { name: 'OneDrive', icon: '☁️', category: 'work' },
+        'google-drive': { name: 'Google Drive', icon: '📂', category: 'work' },
+        dropbox: { name: 'Dropbox', icon: '📁', category: 'work' },
+        notion: { name: 'Notion', icon: '📝', category: 'work' },
+        evernote: { name: 'Evernote', icon: '📓', category: 'work' },
+        figma: { name: 'Figma', icon: '🎨', category: 'work' },
+        jetbrains: { name: 'JetBrains', icon: '💻', category: 'work' },
+        linear: { name: 'Linear', icon: '📊', category: 'work' },
+        grammarly: { name: 'Grammarly', icon: '✍️', category: 'work' },
+        gitlab: { name: 'GitLab', icon: '🦊', category: 'it' },
+        docker: { name: 'Docker', icon: '🐳', category: 'it' },
+        npm: { name: 'npm', icon: '📦', category: 'it' },
+        cloudflare: { name: 'Cloudflare', icon: '☁️', category: 'it' },
+        vercel: { name: 'Vercel', icon: '▲', category: 'it' },
+        openai: { name: 'OpenAI', icon: '🤖', category: 'it' },
+        oracle: { name: 'Oracle', icon: '🔶', category: 'it' },
+        jfrog: { name: 'JFrog', icon: '🐸', category: 'it' },
+        googleapis: { name: 'Google APIs', icon: '🔧', category: 'it' },
+        jsdelivr: { name: 'jsDelivr', icon: '📦', category: 'it' },
+        amazon: { name: 'Amazon', icon: '🛒', category: 'shopping' },
+        ebay: { name: 'eBay', icon: '🛍️', category: 'shopping' },
+        paypal: { name: 'PayPal', icon: '💳', category: 'shopping' },
+        patreon: { name: 'Patreon', icon: '❤️', category: 'shopping' },
+        apple: { name: 'Apple', icon: '🍎', category: 'other' },
+        proton: { name: 'Proton', icon: '🔒', category: 'security' },
+        dns: { name: 'DNS', icon: '🌐', category: 'security' },
+        icloud: { name: 'iCloud', icon: '☁️', category: 'security' },
+        wikipedia: { name: 'Wikipedia', icon: '📚', category: 'education' },
+        duolingo: { name: 'Duolingo', icon: '🦉', category: 'education' },
+        blogger: { name: 'Blogger', icon: '📝', category: 'dev' },
+        wordpress: { name: 'WordPress', icon: '📝', category: 'dev' },
+        jquery: { name: 'jQuery', icon: '⚡', category: 'dev' },
+        'google-play': { name: 'Google Play', icon: '📱', category: 'dev' },
+        adobe: { name: 'Adobe', icon: '🎨', category: 'other' },
+        bing: { name: 'Bing', icon: '🔍', category: 'other' },
+        bitcoin: { name: 'Bitcoin', icon: '₿', category: 'other' },
+        bluray: { name: 'Blu-ray', icon: '💿', category: 'other' },
+        chatgpt: { name: 'ChatGPT', icon: '🤖', category: 'other' },
+        gopro: { name: 'GoPro', icon: '📷', category: 'other' },
+        imgur: { name: 'Imgur', icon: '🖼️', category: 'other' },
+        jio: { name: 'Jio', icon: '📶', category: 'other' },
+        kindle: { name: 'Kindle', icon: '📚', category: 'other' },
+        live: { name: 'Live', icon: '🔴', category: 'other' },
+        nvidia: { name: 'NVIDIA', icon: '🟢', category: 'other' },
+        outlook: { name: 'Outlook', icon: '✉️', category: 'other' },
+        yahoo: { name: 'Yahoo', icon: '🔴', category: 'other' },
+        yandex: { name: 'Yandex', icon: '🟡', category: 'other' },
+        zoom: { name: 'Zoom', icon: '📹', category: 'other' },
+        vk: { name: 'VK', icon: '💙', category: 'social' },
+        bilibili: { name: 'Bilibili', icon: '📺', category: 'streaming' }
+    }
 };
 
 // ============================================
-// КАТЕГОРИИ
+// КАТЕГОРИИ (общие)
 // ============================================
 const CATEGORIES = {
     all: { label: 'Все', icon: '📋' },
@@ -118,11 +214,16 @@ const CATEGORIES = {
 // ============================================
 // СОСТОЯНИЕ
 // ============================================
+let currentAuthor = 'hydraponique';
 let currentCategory = 'all';
 
 // ============================================
 // ФУНКЦИИ
 // ============================================
+function getCurrentRules() {
+    return RULES_BY_AUTHOR[currentAuthor] || {};
+}
+
 function createRuleCard(key, rule) {
     const card = document.createElement('div');
     card.className = 'rule-card';
@@ -137,6 +238,18 @@ function createRuleCard(key, rule) {
         </label>
     `;
     return card;
+}
+
+function populateAuthorSelect() {
+    const select = document.getElementById('authorSelect');
+    select.innerHTML = '';
+    Object.keys(AUTHORS).forEach(key => {
+        const option = document.createElement('option');
+        option.value = key;
+        option.textContent = `${AUTHORS[key].name}`;
+        if (key === currentAuthor) option.selected = true;
+        select.appendChild(option);
+    });
 }
 
 function populateCategories() {
@@ -160,10 +273,16 @@ function populateCategories() {
 function renderRules() {
     const grid = document.getElementById('rulesGrid');
     grid.innerHTML = '';
-    const sortedKeys = Object.keys(RULES).sort();
+    const rules = getCurrentRules();
+    const sortedKeys = Object.keys(rules).sort();
+    
+    if (sortedKeys.length === 0) {
+        grid.innerHTML = '<div style="grid-column: 1/-1; text-align: center; color: #666; padding: 40px;">У этого автора пока нет правил</div>';
+        return;
+    }
     
     sortedKeys.forEach(key => {
-        grid.appendChild(createRuleCard(key, RULES[key]));
+        grid.appendChild(createRuleCard(key, rules[key]));
     });
     filterRules();
     updateSelectedCount();
@@ -188,6 +307,8 @@ function updateSelectedCount() {
 function downloadConfig() {
     const checkboxes = document.querySelectorAll('.rule-card:not(.hidden) input[type="checkbox"]');
     const selectedRules = [];
+    const author = AUTHORS[currentAuthor];
+    const rules = getCurrentRules();
     
     checkboxes.forEach((checkbox) => {
         if (checkbox.checked) {
@@ -197,7 +318,7 @@ function downloadConfig() {
     type: http
     behavior: domain
     format: mrs
-    url: ${AUTHOR.baseUrl}${key}.mrs
+    url: ${author.baseUrl}${key}.mrs
     path: ./ruleset/${key}.mrs
     interval: 86400`);
         }
@@ -209,7 +330,7 @@ function downloadConfig() {
     }
 
     const header = `# Mihomo Ruleset
-# Автор: ${AUTHOR.name}
+# Автор: ${author.name}
 # Сгенерировано: ${new Date().toLocaleString()}
 # Всего правил: ${selectedRules.length}
 
@@ -232,8 +353,15 @@ ${selectedRules.join('\n')}
 // ИНИЦИАЛИЗАЦИЯ
 // ============================================
 document.addEventListener('DOMContentLoaded', () => {
+    populateAuthorSelect();
     populateCategories();
     renderRules();
+
+    // Смена автора
+    document.getElementById('authorSelect').addEventListener('change', function() {
+        currentAuthor = this.value;
+        renderRules();
+    });
 
     // Кнопки "Выбрать все" / "Снять все"
     document.getElementById('selectAllBtn').addEventListener('click', () => {
