@@ -3,30 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Сборщик правил для Mihomo</title>
+    <title>Mihomo Rules Builder</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="container">
-        <h1>⚡ Сборщик правил для Mihomo</h1>
-        <p>Выбери нужные правила и скачай готовый конфиг</p>
-        
+        <header>
+            <h1>⚡ Mihomo Rules Builder</h1>
+            <p>Выбери провайдера, категорию и правила для своего конфига</p>
+        </header>
+
+        <!-- Выбор автора -->
+        <div class="selector-group">
+            <label for="authorSelect">📦 Провайдер правил</label>
+            <select id="authorSelect">
+                <!-- Заполняется из JavaScript -->
+            </select>
+        </div>
+
         <!-- Категории -->
         <div class="categories" id="categories">
-            <button class="cat-btn active" data-category="all">📋 Все</button>
-            <button class="cat-btn" data-category="social">🌐 Соцсети</button>
-            <button class="cat-btn" data-category="streaming">🎬 Стриминг</button>
-            <button class="cat-btn" data-category="games">🎮 Игры</button>
-            <button class="cat-btn" data-category="work">💼 Работа</button>
-            <button class="cat-btn" data-category="it">☁️ IT & Облака</button>
-            <button class="cat-btn" data-category="shopping">🛒 Покупки</button>
-            <button class="cat-btn" data-category="music">🎵 Музыка</button>
+            <!-- Заполняется из JavaScript -->
         </div>
 
-        <div class="rules-grid" id="rulesGrid">
-            <!-- Карточки будут сгенерированы через JavaScript -->
-        </div>
+        <!-- Сетка правил -->
+        <div class="rules-grid" id="rulesGrid"></div>
 
+        <!-- Управление -->
         <div class="controls">
             <button id="selectAllBtn" class="btn btn-secondary">✅ Выбрать все</button>
             <button id="deselectAllBtn" class="btn btn-secondary">❌ Снять все</button>
