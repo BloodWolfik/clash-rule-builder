@@ -24,6 +24,8 @@ body {
     align-self: flex-start;
     max-height: calc(100vh - 40px);
     overflow-y: auto;
+    /* Прижимаем к левому краю */
+    margin-right: auto;
 }
 
 .sidebar-inner {
@@ -76,6 +78,9 @@ body {
     flex: 1;
     max-width: 1200px;
     min-width: 0;
+    /* Прижимаем к центру */
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .container {
@@ -374,6 +379,7 @@ header p {
         width: 100%;
         position: static;
         max-height: none;
+        margin-right: 0;
     }
 
     .sidebar-inner {
@@ -404,6 +410,8 @@ header p {
 
     .main-content {
         max-width: 100%;
+        margin-left: 0;
+        margin-right: 0;
     }
 }
 
