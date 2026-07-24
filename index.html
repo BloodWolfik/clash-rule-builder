@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Выбор правил для Mihomo</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>⚡ Сборщик правил для Mihomo</h1>
+        <p>Выбери нужные правила и скачай готовый конфиг</p>
+        
+        <div class="rules-grid">
+            <!-- Правило 1 -->
+            <div class="rule-card" data-rule="microsoft">
+                <div class="rule-icon">🪟</div>
+                <div class="rule-name">Microsoft</div>
+                <div class="rule-desc">Windows, Office, Xbox</div>
+                <label class="switch">
+                    <input type="checkbox" checked>
+                    <span class="slider"></span>
+                </label>
+            </div>
+
+            <!-- Правило 2 -->
+            <div class="rule-card" data-rule="category-ads">
+                <div class="rule-icon">🚫</div>
+                <div class="rule-name">Блокировка рекламы</div>
+                <div class="rule-desc">Рекламные домены</div>
+                <label class="switch">
+                    <input type="checkbox" checked>
+                    <span class="slider"></span>
+                </label>
+            </div>
+
+            <!-- Правило 3 -->
+            <div class="rule-card" data-rule="github">
+                <div class="rule-icon">🐙</div>
+                <div class="rule-name">GitHub</div>
+                <div class="rule-desc">GitHub и связанные сервисы</div>
+                <label class="switch">
+                    <input type="checkbox" checked>
+                    <span class="slider"></span>
+                </label>
+            </div>
+
+            <!-- Добавь сколько хочешь правил -->
+        </div>
+
+        <button id="downloadBtn" class="download-btn">
+            📥 Скачать config.yaml
+        </button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
