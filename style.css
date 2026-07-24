@@ -24,7 +24,6 @@ body {
     align-self: flex-start;
     max-height: calc(100vh - 40px);
     overflow-y: auto;
-    /* ПРИЖИМАЕМ К ЛЕВОМУ КРАЮ */
     margin-right: auto;
     margin-left: 0;
 }
@@ -78,7 +77,6 @@ body {
     flex: 1;
     max-width: 1200px;
     min-width: 0;
-    /* Центрируем */
     margin-left: auto;
     margin-right: auto;
 }
@@ -111,7 +109,7 @@ header p {
     font-size: 15px;
 }
 
-/* Селектор автора — по центру */
+/* ===== СЕЛЕКТОР АВТОРА — ПО ЦЕНТРУ ===== */
 .selector-group {
     max-width: 600px;
     margin: 0 auto 24px auto;
@@ -152,7 +150,7 @@ header p {
     box-shadow: 0 0 0 3px rgba(123, 47, 252, 0.2);
 }
 
-/* Категории — по центру */
+/* ===== КАТЕГОРИИ — ПО ЦЕНТРУ ===== */
 .categories {
     display: flex;
     flex-wrap: wrap;
@@ -184,7 +182,7 @@ header p {
     box-shadow: 0 4px 20px rgba(123, 47, 252, 0.3);
 }
 
-/* Сетка правил */
+/* ===== СЕТКА ПРАВИЛ ===== */
 .rules-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
@@ -297,7 +295,7 @@ header p {
     background: #fff;
 }
 
-/* Управление — по центру */
+/* ===== УПРАВЛЕНИЕ — ПО ЦЕНТРУ ===== */
 .controls {
     display: flex;
     flex-wrap: wrap;
