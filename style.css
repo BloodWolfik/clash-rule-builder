@@ -1,3 +1,56 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: #0a0a0a;
+    color: #e0e0e0;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    padding: 30px 20px;
+}
+
+.container {
+    max-width: 1200px;
+    width: 100%;
+    background: #121212;
+    padding: 40px;
+    border-radius: 24px;
+    border: 1px solid #2a2a2a;
+    box-shadow: 0 20px 80px rgba(0, 0, 0, 0.9);
+}
+
+header {
+    text-align: center;
+    margin-bottom: 32px;
+}
+
+h1 {
+    font-size: 32px;
+    font-weight: 800;
+    background: linear-gradient(135deg, #00d4ff, #7b2ffc, #ff6fd8);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-size: 300% 300%;
+    animation: gradientMove 4s ease infinite;
+}
+
+@keyframes gradientMove {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+header p {
+    color: #888;
+    margin-top: 8px;
+    font-size: 15px;
+}
+
 /* Селектор автора */
 .selector-group {
     margin-bottom: 24px;
@@ -14,7 +67,7 @@
 #authorSelect {
     width: 100%;
     padding: 14px 18px;
-    background: #1e1e1e;
+    background: #1a1a1a;
     border: 1px solid #333;
     border-radius: 12px;
     color: #fff;
@@ -36,3 +89,276 @@
     border-color: #7b2ffc;
     box-shadow: 0 0 0 3px rgba(123, 47, 252, 0.2);
 }
+
+/* Категории */
+.categories {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 24px;
+    justify-content: center;
+}
+
+.cat-btn {
+    padding: 8px 18px;
+    background: #1a1a1a;
+    border: 1px solid #2a2a2a;
+    border-radius: 20px;
+    color: #888;
+    font-size: 13px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.cat-btn:hover {
+    border-color: #7b2ffc;
+    color: #fff;
+    transform: translateY(-1px);
+}
+
+.cat-btn.active {
+    background: linear-gradient(135deg, #00d4ff, #7b2ffc);
+    border-color: transparent;
+    color: #fff;
+    box-shadow: 0 4px 20px rgba(123, 47, 252, 0.3);
+}
+
+/* Сетка правил */
+.rules-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 12px;
+    margin-bottom: 30px;
+    min-height: 200px;
+}
+
+.rule-card {
+    background: #1a1a1a;
+    padding: 16px 12px;
+    border-radius: 14px;
+    border: 1px solid #2a2a2a;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.rule-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(123, 47, 252, 0.05), rgba(0, 212, 255, 0.05));
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.rule-card:hover {
+    border-color: #7b2ffc;
+    transform: translateY(-4px);
+    box-shadow: 0 8px 30px rgba(123, 47, 252, 0.15);
+}
+
+.rule-card:hover::before {
+    opacity: 1;
+}
+
+.rule-card.hidden {
+    display: none !important;
+}
+
+.rule-icon {
+    font-size: 30px;
+    margin-bottom: 6px;
+    position: relative;
+    z-index: 1;
+}
+
+.rule-name {
+    font-weight: 600;
+    font-size: 13px;
+    margin-bottom: 10px;
+    position: relative;
+    z-index: 1;
+    color: #e0e0e0;
+}
+
+/* Toggle Switch */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 38px;
+    height: 20px;
+    flex-shrink: 0;
+    z-index: 1;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: #333;
+    transition: .3s;
+    border-radius: 20px;
+}
+
+.slider:before {
+    content: "";
+    position: absolute;
+    height: 14px;
+    width: 14px;
+    left: 3px;
+    bottom: 3px;
+    background: #666;
+    transition: .3s;
+    border-radius: 50%;
+}
+
+.switch input:checked + .slider {
+    background: linear-gradient(135deg, #00d4ff, #7b2ffc);
+}
+
+.switch input:checked + .slider:before {
+    transform: translateX(18px);
+    background: #fff;
+}
+
+/* Управление */
+.controls {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 20px;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn {
+    padding: 10px 22px;
+    border: none;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background: #1e1e1e;
+    color: #ccc;
+    border: 1px solid #2a2a2a;
+}
+
+.btn:hover {
+    background: #2a2a2a;
+    transform: scale(1.02);
+    border-color: #7b2ffc;
+}
+
+.btn-secondary {
+    background: transparent;
+}
+
+.selected-count {
+    color: #888;
+    font-size: 14px;
+    padding: 8px 16px;
+    background: #1a1a1a;
+    border-radius: 8px;
+    border: 1px solid #2a2a2a;
+}
+
+.download-btn {
+    width: 100%;
+    padding: 18px;
+    background: linear-gradient(135deg, #00d4ff, #7b2ffc);
+    border: none;
+    border-radius: 14px;
+    color: #fff;
+    font-size: 18px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    letter-spacing: 0.5px;
+}
+
+.download-btn:hover {
+    transform: scale(1.02);
+    box-shadow: 0 0 40px rgba(123, 47, 252, 0.4);
+}
+
+/* Адаптив */
+@media (max-width: 640px) {
+    .container {
+        padding: 20px;
+    }
+    
+    h1 {
+        font-size: 24px;
+    }
+    
+    .rules-grid {
+        grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+        gap: 8px;
+    }
+    
+    .rule-card {
+        padding: 12px 8px;
+    }
+    
+    .rule-icon {
+        font-size: 24px;
+    }
+    
+    .rule-name {
+        font-size: 11px;
+    }
+}
+
+/* Анимация появления */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.rule-card {
+    animation: fadeInUp 0.4s ease forwards;
+}
+
+.rule-card:nth-child(1) { animation-delay: 0.02s; }
+.rule-card:nth-child(2) { animation-delay: 0.04s; }
+.rule-card:nth-child(3) { animation-delay: 0.06s; }
+.rule-card:nth-child(4) { animation-delay: 0.08s; }
+.rule-card:nth-child(5) { animation-delay: 0.10s; }
+.rule-card:nth-child(6) { animation-delay: 0.12s; }
+.rule-card:nth-child(7) { animation-delay: 0.14s; }
+.rule-card:nth-child(8) { animation-delay: 0.16s; }
+.rule-card:nth-child(9) { animation-delay: 0.18s; }
+.rule-card:nth-child(10) { animation-delay: 0.20s; }
+.rule-card:nth-child(11) { animation-delay: 0.22s; }
+.rule-card:nth-child(12) { animation-delay: 0.24s; }
+.rule-card:nth-child(13) { animation-delay: 0.26s; }
+.rule-card:nth-child(14) { animation-delay: 0.28s; }
+.rule-card:nth-child(15) { animation-delay: 0.30s; }
+.rule-card:nth-child(16) { animation-delay: 0.32s; }
+.rule-card:nth-child(17) { animation-delay: 0.34s; }
+.rule-card:nth-child(18) { animation-delay: 0.36s; }
+.rule-card:nth-child(19) { animation-delay: 0.38s; }
+.rule-card:nth-child(20) { animation-delay: 0.40s; }
