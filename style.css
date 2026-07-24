@@ -10,12 +10,12 @@ body {
     color: #e0e0e0;
     min-height: 100vh;
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;  /* ← теперь всё прижато к левому краю */
     padding: 20px;
     gap: 24px;
 }
 
-/* ===== САЙДБАР — ПРИЖИМАЕМ К ЛЕВОМУ КРАЮ ===== */
+/* ===== САЙДБАР — СЛЕВА ===== */
 .sidebar {
     width: 260px;
     flex-shrink: 0;
@@ -24,8 +24,6 @@ body {
     align-self: flex-start;
     max-height: calc(100vh - 40px);
     overflow-y: auto;
-    margin-right: auto;
-    margin-left: 0;
 }
 
 .sidebar-inner {
@@ -72,13 +70,12 @@ body {
     flex-shrink: 0;
 }
 
-/* ===== ОСНОВНОЙ КОНТЕНТ — ПО ЦЕНТРУ ===== */
+/* ===== ОСНОВНОЙ КОНТЕНТ — ПРИДВИНУТ К САЙДБАРУ ===== */
 .main-content {
     flex: 1;
-    max-width: 1200px;
+    max-width: 1100px;
     min-width: 0;
-    margin-left: auto;
-    margin-right: auto;
+    /* Убираем margin: 0 auto — теперь блок сам прижимается к сайдбару */
 }
 
 .container {
@@ -109,7 +106,7 @@ header p {
     font-size: 15px;
 }
 
-/* ===== СЕЛЕКТОР АВТОРА — ПО ЦЕНТРУ ===== */
+/* Селектор автора */
 .selector-group {
     max-width: 600px;
     margin: 0 auto 24px auto;
@@ -150,7 +147,7 @@ header p {
     box-shadow: 0 0 0 3px rgba(123, 47, 252, 0.2);
 }
 
-/* ===== КАТЕГОРИИ — ПО ЦЕНТРУ ===== */
+/* Категории */
 .categories {
     display: flex;
     flex-wrap: wrap;
@@ -182,7 +179,7 @@ header p {
     box-shadow: 0 4px 20px rgba(123, 47, 252, 0.3);
 }
 
-/* ===== СЕТКА ПРАВИЛ ===== */
+/* Сетка правил */
 .rules-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
@@ -295,7 +292,7 @@ header p {
     background: #fff;
 }
 
-/* ===== УПРАВЛЕНИЕ — ПО ЦЕНТРУ ===== */
+/* Управление */
 .controls {
     display: flex;
     flex-wrap: wrap;
@@ -361,14 +358,13 @@ header p {
         align-items: center;
         padding: 16px;
         gap: 16px;
+        justify-content: center;
     }
 
     .sidebar {
         width: 100%;
         position: static;
         max-height: none;
-        margin-right: 0;
-        margin-left: 0;
     }
 
     .sidebar-inner {
@@ -399,8 +395,6 @@ header p {
 
     .main-content {
         max-width: 100%;
-        margin-left: 0;
-        margin-right: 0;
     }
 
     .selector-group {
