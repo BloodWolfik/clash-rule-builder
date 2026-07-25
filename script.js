@@ -9,9 +9,9 @@ const AUTHORS = {
         rating: 5
     },
     metacubex: {
-        name: 'MetaCubeX (Mihomo)',
-        baseUrl: 'https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@mihomo/',
-        description: 'Официальные правила от MetaCubeX для Mihomo',
+        name: 'MetaCubeX (GEO)',
+        baseUrl: 'https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@release/',
+        description: 'Универсальные геоданные для маршрутизации (geoip.dat / geosite.dat)',
         rating: 5
     },
     runetfreedom: {
@@ -168,83 +168,32 @@ const RULES_BY_AUTHOR = {
         zoom: { name: 'Zoom', icon: '📹', category: 'other' }
     },
 
-    // ===== MetaCubeX =====
+    // ===== MetaCubeX (GEO) — ИСПРАВЛЕН =====
     metacubex: {
-        google: { name: 'Google', icon: '🔴', category: 'it' },
-        youtube: { name: 'YouTube', icon: '▶️', category: 'streaming' },
-        netflix: { name: 'Netflix', icon: '🎥', category: 'streaming' },
-        spotify: { name: 'Spotify', icon: '🎶', category: 'music' },
-        telegram: { name: 'Telegram', icon: '✈️', category: 'social' },
-        github: { name: 'GitHub', icon: '🐙', category: 'it' },
-        discord: { name: 'Discord', icon: '💬', category: 'social' },
-        twitch: { name: 'Twitch', icon: '🎮', category: 'streaming' },
-        tiktok: { name: 'TikTok', icon: '🎵', category: 'social' },
-        facebook: { name: 'Facebook', icon: '👤', category: 'social' },
-        instagram: { name: 'Instagram', icon: '📸', category: 'social' },
-        twitter: { name: 'Twitter/X', icon: '🐦', category: 'social' },
-        reddit: { name: 'Reddit', icon: '🤖', category: 'social' },
-        linkedin: { name: 'LinkedIn', icon: '💼', category: 'social' },
-        whatsapp: { name: 'WhatsApp', icon: '💬', category: 'social' },
-        snapchat: { name: 'Snapchat', icon: '👻', category: 'social' },
-        pinterest: { name: 'Pinterest', icon: '📌', category: 'social' },
-        tumblr: { name: 'Tumblr', icon: '📝', category: 'social' },
-        soundcloud: { name: 'SoundCloud', icon: '🎵', category: 'music' },
-        dailymotion: { name: 'Dailymotion', icon: '🎬', category: 'streaming' },
-        hbo: { name: 'HBO', icon: '🎬', category: 'streaming' },
-        hulu: { name: 'Hulu', icon: '📺', category: 'streaming' },
-        disney: { name: 'Disney+', icon: '🏰', category: 'streaming' },
-        microsoft: { name: 'Microsoft', icon: '🪟', category: 'work' },
-        office: { name: 'Office', icon: '📄', category: 'work' },
-        onedrive: { name: 'OneDrive', icon: '☁️', category: 'work' },
-        'google-drive': { name: 'Google Drive', icon: '📂', category: 'work' },
-        dropbox: { name: 'Dropbox', icon: '📁', category: 'work' },
-        notion: { name: 'Notion', icon: '📝', category: 'work' },
-        evernote: { name: 'Evernote', icon: '📓', category: 'work' },
-        figma: { name: 'Figma', icon: '🎨', category: 'work' },
-        jetbrains: { name: 'JetBrains', icon: '💻', category: 'work' },
-        linear: { name: 'Linear', icon: '📊', category: 'work' },
-        grammarly: { name: 'Grammarly', icon: '✍️', category: 'work' },
-        gitlab: { name: 'GitLab', icon: '🦊', category: 'it' },
-        docker: { name: 'Docker', icon: '🐳', category: 'it' },
-        npm: { name: 'npm', icon: '📦', category: 'it' },
-        cloudflare: { name: 'Cloudflare', icon: '☁️', category: 'it' },
-        vercel: { name: 'Vercel', icon: '▲', category: 'it' },
-        openai: { name: 'OpenAI', icon: '🤖', category: 'it' },
-        oracle: { name: 'Oracle', icon: '🔶', category: 'it' },
-        jfrog: { name: 'JFrog', icon: '🐸', category: 'it' },
-        googleapis: { name: 'Google APIs', icon: '🔧', category: 'it' },
-        jsdelivr: { name: 'jsDelivr', icon: '📦', category: 'it' },
-        amazon: { name: 'Amazon', icon: '🛒', category: 'shopping' },
-        ebay: { name: 'eBay', icon: '🛍️', category: 'shopping' },
-        paypal: { name: 'PayPal', icon: '💳', category: 'shopping' },
-        patreon: { name: 'Patreon', icon: '❤️', category: 'shopping' },
-        apple: { name: 'Apple', icon: '🍎', category: 'other' },
-        proton: { name: 'Proton', icon: '🔒', category: 'security' },
-        dns: { name: 'DNS', icon: '🌐', category: 'security' },
-        icloud: { name: 'iCloud', icon: '☁️', category: 'security' },
-        wikipedia: { name: 'Wikipedia', icon: '📚', category: 'education' },
-        duolingo: { name: 'Duolingo', icon: '🦉', category: 'education' },
-        blogger: { name: 'Blogger', icon: '📝', category: 'dev' },
-        wordpress: { name: 'WordPress', icon: '📝', category: 'dev' },
-        jquery: { name: 'jQuery', icon: '⚡', category: 'dev' },
-        'google-play': { name: 'Google Play', icon: '📱', category: 'dev' },
-        adobe: { name: 'Adobe', icon: '🎨', category: 'other' },
-        bing: { name: 'Bing', icon: '🔍', category: 'other' },
-        bitcoin: { name: 'Bitcoin', icon: '₿', category: 'other' },
-        bluray: { name: 'Blu-ray', icon: '💿', category: 'other' },
-        chatgpt: { name: 'ChatGPT', icon: '🤖', category: 'other' },
-        gopro: { name: 'GoPro', icon: '📷', category: 'other' },
-        imgur: { name: 'Imgur', icon: '🖼️', category: 'other' },
-        jio: { name: 'Jio', icon: '📶', category: 'other' },
-        kindle: { name: 'Kindle', icon: '📚', category: 'other' },
-        live: { name: 'Live', icon: '🔴', category: 'other' },
-        nvidia: { name: 'NVIDIA', icon: '🟢', category: 'other' },
-        outlook: { name: 'Outlook', icon: '✉️', category: 'other' },
-        yahoo: { name: 'Yahoo', icon: '🔴', category: 'other' },
-        yandex: { name: 'Yandex', icon: '🟡', category: 'other' },
-        zoom: { name: 'Zoom', icon: '📹', category: 'other' },
-        vk: { name: 'VK', icon: '💙', category: 'social' },
-        bilibili: { name: 'Bilibili', icon: '📺', category: 'streaming' }
+        'geoip': {
+            name: 'GeoIP (IP-адреса)',
+            icon: '🌍',
+            category: 'it',
+            description: 'Категории: cn, private, cloudflare, cloudfront, facebook, fastly, google, netflix, telegram, twitter, apple, bilibili и другие',
+            customType: 'http',
+            customBehavior: 'ipcidr',
+            customFormat: 'dat',
+            customUrl: 'https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@release/geoip.dat',
+            customPath: './ruleset/geoip.dat',
+            customInterval: 86400
+        },
+        'geosite': {
+            name: 'GeoSite (домены)',
+            icon: '🏷️',
+            category: 'it',
+            description: 'Категории: google, youtube, twitter, facebook, openai, telegram, netflix, discord, github, cn, gfwlist, category-ads-all, geolocation-!cn, steam, biliintl и другие',
+            customType: 'http',
+            customBehavior: 'domain',
+            customFormat: 'dat',
+            customUrl: 'https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@release/geosite.dat',
+            customPath: './ruleset/geosite.dat',
+            customInterval: 86400
+        }
     },
 
     // ===== RunetFreedom =====
@@ -695,6 +644,12 @@ function createRuleCard(key, rule) {
             <span class="slider"></span>
         </label>
     `;
+    
+    // Добавляем подсказку, если есть description
+    if (rule.description) {
+        card.title = rule.description;
+    }
+    
     return card;
 }
 
