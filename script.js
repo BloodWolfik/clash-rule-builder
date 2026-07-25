@@ -105,7 +105,7 @@ hydraponique: {
     'whitelist': { name: 'Белый список', icon: '✅', category: 'other' },
     'win-spy': { name: 'Трекинг Windows', icon: '🪟', category: 'security' },
     'youtube': { name: 'YouTube', icon: '▶️', category: 'streaming' }
-}
+},
 
     // ===== MetaCubeX (GEO) — ИСПРАВЛЕН =====
     metacubex: {
