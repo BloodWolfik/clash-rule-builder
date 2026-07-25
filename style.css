@@ -480,3 +480,44 @@ header p {
     padding: 6px 12px;
     font-size: 14px;
 }
+
+/* ===== ПОДСКАЗКИ ПРИ НАВЕДЕНИИ ===== */
+.rule-card[title] {
+    position: relative;
+    cursor: help;
+}
+
+.rule-card[title]:hover::after {
+    content: attr(title);
+    position: absolute;
+    bottom: calc(100% + 10px);
+    left: 50%;
+    transform: translateX(-50%);
+    background: #1a1a1a;
+    border: 1px solid #7b2ffc;
+    border-radius: 10px;
+    padding: 10px 16px;
+    color: #e0e0e0;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 1.5;
+    max-width: 320px;
+    white-space: normal;
+    word-wrap: break-word;
+    z-index: 1000;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.9);
+    pointer-events: none;
+    text-align: center;
+}
+
+.rule-card[title]:hover::before {
+    content: '';
+    position: absolute;
+    bottom: calc(100% + 2px);
+    left: 50%;
+    transform: translateX(-50%);
+    border: 8px solid transparent;
+    border-top-color: #7b2ffc;
+    z-index: 1000;
+    pointer-events: none;
+}
