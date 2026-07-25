@@ -11,6 +11,11 @@ const AUTHORS = {
         name: 'MetaCubeX (Mihomo)',
         baseUrl: 'https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@mihomo/',
         description: 'Официальные правила от MetaCubeX для Mihomo'
+    },
+    runetfreedom: {
+        name: 'RunetFreedom',
+        baseUrl: 'https://raw.githubusercontent.com/runetfreedom/russia-v2ray-rules-dat/release/',
+        description: 'Правила для обхода блокировок РКН'
     }
 };
 
@@ -190,6 +195,29 @@ const RULES_BY_AUTHOR = {
         zoom: { name: 'Zoom', icon: '📹', category: 'other' },
         vk: { name: 'VK', icon: '💙', category: 'social' },
         bilibili: { name: 'Bilibili', icon: '📺', category: 'streaming' }
+    },
+
+    // ----- RunetFreedom -----
+    runetfreedom: {
+        'russia-blocked-ip': {
+            name: 'Блокировка IP РФ',
+            icon: '🚫',
+            category: 'security',
+            // Специальные параметры для этого правила
+            customType: 'ipcidr',
+            customUrl: 'https://raw.githubusercontent.com/runetfreedom/russia-v2ray-rules-dat/release/geoip.dat',
+            customPath: './ruleset/russia-blocked-ip.dat',
+            customInterval: 43200
+        },
+        'russia-blocked-domain': {
+            name: 'Блокировка доменов РФ',
+            icon: '🛑',
+            category: 'security',
+            customType: 'domain',
+            customUrl: 'https://raw.githubusercontent.com/runetfreedom/russia-v2ray-rules-dat/release/geosite.dat',
+            customPath: './ruleset/russia-blocked-domain.dat',
+            customInterval: 43200
+        }
     }
 };
 
@@ -314,13 +342,27 @@ function downloadConfig() {
         if (checkbox.checked) {
             const card = checkbox.closest('.rule-card');
             const key = card.dataset.rule;
-            selectedRules.push(`  ${key}:
+            const rule = rules[key];
+            
+            // Проверяем, есть ли у правила кастомные параметры
+            if (rule.customType) {
+                // Для runetfreedom — используем кастомные параметры
+                selectedRules.push(`  ${key}:
+    type: ${rule.customType}
+    behavior: ${rule.customType === 'ipcidr' ? 'ipcidr' : 'domain'}
+    url: "${rule.customUrl}"
+    path: ${rule.customPath}
+    interval: ${rule.customInterval}`);
+            } else {
+                // Стандартный формат для остальных авторов
+                selectedRules.push(`  ${key}:
     type: http
     behavior: domain
     format: mrs
     url: ${author.baseUrl}${key}.mrs
     path: ./ruleset/${key}.mrs
     interval: 86400`);
+            }
         }
     });
 
