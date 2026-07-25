@@ -9,32 +9,19 @@ body {
     background: #0a0a0a;
     color: #e0e0e0;
     min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
     padding: 20px;
+    position: relative;
 }
 
-/* ===== ОБЩАЯ ОБЁРТКА ===== */
-.wrapper {
-    display: flex;
-    width: 100%;
-    max-width: 1400px;
-    gap: 40px;
-    justify-content: center;
-}
-
-/* ===== САЙДБАР — ЛЕВЫЙ КРАЙ ===== */
+/* ===== САЙДБАР — ФИКСИРОВАННЫЙ СЛЕВА ===== */
 .sidebar {
     width: 260px;
-    flex-shrink: 0;
-    position: sticky;
+    position: fixed;
     top: 20px;
-    align-self: flex-start;
-    max-height: calc(100vh - 40px);
+    left: 20px;
+    bottom: 20px;
     overflow-y: auto;
-    /* Прижимаем к левому краю */
-    margin-right: 0;
+    z-index: 100;
 }
 
 .sidebar-inner {
@@ -83,9 +70,9 @@ body {
 
 /* ===== ОСНОВНОЙ КОНТЕНТ — ПО ЦЕНТРУ ===== */
 .main-content {
-    flex: 1;
     max-width: 1100px;
-    min-width: 0;
+    margin: 0 auto;
+    padding-left: 300px;  /* ← отступ под сайдбар (ширина + отступ) */
 }
 
 .container {
@@ -189,7 +176,7 @@ header p {
     box-shadow: 0 4px 20px rgba(123, 47, 252, 0.3);
 }
 
-/* ===== СЕТКА ПРАВИЛ ===== */
+/* Сетка правил */
 .rules-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
@@ -368,17 +355,14 @@ header p {
         padding: 16px;
     }
 
-    .wrapper {
-        flex-direction: column;
-        align-items: center;
-        gap: 16px;
-        max-width: 100%;
-    }
-
     .sidebar {
         width: 100%;
         position: static;
-        max-height: none;
+        top: 0;
+        left: 0;
+        bottom: auto;
+        overflow-y: visible;
+        margin-bottom: 16px;
     }
 
     .sidebar-inner {
@@ -408,6 +392,7 @@ header p {
     }
 
     .main-content {
+        padding-left: 0;
         max-width: 100%;
     }
 
