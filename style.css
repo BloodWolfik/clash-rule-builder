@@ -179,15 +179,17 @@ header p {
 /* Сетка правил */
 .rules-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
-    gap: 8px;
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    gap: 12px;
     margin-bottom: 30px;
     min-height: 200px;
+    justify-items: center;   /* ← центрируем карточки по горизонтали */
+    align-items: start;      /* ← выравниваем по верхнему краю */
 }
 
 .rule-card {
     background: #1a1a1a;
-    padding: 12px 8px;
+    padding: 14px 10px;
     border-radius: 12px;
     border: 1px solid #2a2a2a;
     transition: none;
@@ -197,9 +199,10 @@ header p {
     text-align: center;
     position: relative;
     overflow: hidden;
-    max-width: 140px;          /* ← не даём карточке растягиваться */
-    justify-self: center;      /* ← центрируем карточку */
     width: 100%;
+    max-width: 140px;        /* ← НЕ ДАЁМ РАСТЯГИВАТЬСЯ */
+    min-height: 120px;       /* ← фиксируем минимальную высоту */
+    justify-self: center;    /* ← центрируем в ячейке */
 }
 
 .rule-card::before {
