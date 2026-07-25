@@ -70,7 +70,7 @@ body {
 
 /* ===== ОСНОВНОЙ КОНТЕНТ — ПО ЦЕНТРУ ===== */
 .main-content {
-    max-width: 1300px;
+    max-width: 1500px;
     margin: 0 auto;
     padding-left: 300px;  /* ← отступ под сайдбар (ширина + отступ) */
 }
