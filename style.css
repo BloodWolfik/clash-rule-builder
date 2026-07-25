@@ -469,15 +469,14 @@ header p {
     }
 }
 
-/* Стили для выпадающего списка */
+/* ===== СТИЛИ ДЛЯ ВЫПАДАЮЩЕГО СПИСКА ===== */
 #authorSelect {
-    font-family: 'Courier New', monospace; /* моноширинный шрифт для ровного выравнивания */
+    font-size: 15px;
+    font-weight: 500;
+    letter-spacing: 0.3px;
 }
 
 #authorSelect option {
-    padding: 8px 12px;
+    padding: 6px 12px;
     font-size: 14px;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-    display: flex;
-    justify-content: space-between;
 }
