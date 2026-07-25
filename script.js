@@ -67,6 +67,12 @@ const AUTHORS = {
         baseUrl: 'https://cdn.jsdelivr.net/gh/DivineEngine/Profiles@master/Clash/',
         description: 'Профессиональные правила от DivineEngine',
         rating: 4
+    },
+    legiz: {
+        name: 'legiz-ru (RU rulesets)',
+        baseUrl: 'https://github.com/legiz-ru/mihomo-rule-sets/raw/main/',
+        description: 'Специализированные наборы правил для России (РКН, антиреклама, игры)',
+        rating: 5
     }
 };
 
@@ -255,6 +261,8 @@ const RULES_BY_AUTHOR = {
             icon: '🚫',
             category: 'security',
             customType: 'ipcidr',
+            customBehavior: 'ipcidr',
+            customFormat: 'dat',
             customUrl: 'https://raw.githubusercontent.com/runetfreedom/russia-v2ray-rules-dat/release/geoip.dat',
             customPath: './ruleset/russia-blocked-ip.dat',
             customInterval: 43200
@@ -264,6 +272,8 @@ const RULES_BY_AUTHOR = {
             icon: '🛑',
             category: 'security',
             customType: 'domain',
+            customBehavior: 'domain',
+            customFormat: 'dat',
             customUrl: 'https://raw.githubusercontent.com/runetfreedom/russia-v2ray-rules-dat/release/geosite.dat',
             customPath: './ruleset/russia-blocked-domain.dat',
             customInterval: 43200
@@ -456,6 +466,186 @@ const RULES_BY_AUTHOR = {
         'Xbox': { name: 'Xbox', icon: '🎮', category: 'games' },
         'Epic': { name: 'Epic Games', icon: '🎮', category: 'games' },
         'PlayStation': { name: 'PlayStation', icon: '🎮', category: 'games' }
+    },
+
+    // ===== legiz-ru (RU rulesets) =====
+    legiz: {
+        'ru-bundle': {
+            name: 'RU Bundle (РКН)',
+            icon: '🇷🇺',
+            category: 'security',
+            customType: 'http',
+            customBehavior: 'domain',
+            customFormat: 'mrs',
+            customUrl: 'https://github.com/legiz-ru/mihomo-rule-sets/raw/main/ru-bundle/rule.mrs',
+            customPath: './ru-bundle/rule.mrs',
+            customInterval: 86400
+        },
+        'rknasnblock': {
+            name: 'ASN блокировка РКН',
+            icon: '🚫',
+            category: 'security',
+            customType: 'http',
+            customBehavior: 'ipcidr',
+            customFormat: 'mrs',
+            customUrl: 'https://github.com/legiz-ru/mihomo-rule-sets/raw/main/ru-bundle/rknasnblock.mrs',
+            customPath: './ru-bundle/rknasnblock.mrs',
+            customInterval: 86400
+        },
+        'oisd-big': {
+            name: 'OISD AdBlock (Big)',
+            icon: '🛡️',
+            category: 'other',
+            customType: 'http',
+            customBehavior: 'domain',
+            customFormat: 'mrs',
+            customUrl: 'https://github.com/legiz-ru/mihomo-rule-sets/raw/main/oisd/big.mrs',
+            customPath: './oisd/big.mrs',
+            customInterval: 86400
+        },
+        'oisd-small': {
+            name: 'OISD AdBlock (Small)',
+            icon: '🔰',
+            category: 'other',
+            customType: 'http',
+            customBehavior: 'domain',
+            customFormat: 'mrs',
+            customUrl: 'https://github.com/legiz-ru/mihomo-rule-sets/raw/main/oisd/small.mrs',
+            customPath: './oisd/small.mrs',
+            customInterval: 86400
+        },
+        'oisd-nsfw': {
+            name: 'OISD NSFW Filter',
+            icon: '🔞',
+            category: 'other',
+            customType: 'http',
+            customBehavior: 'domain',
+            customFormat: 'mrs',
+            customUrl: 'https://github.com/legiz-ru/mihomo-rule-sets/raw/main/oisd/nsfw.mrs',
+            customPath: './oisd/nsfw.mrs',
+            customInterval: 86400
+        },
+        'refilter-domains': {
+            name: 'Re-filter Домены',
+            icon: '🔄',
+            category: 'it',
+            customType: 'http',
+            customBehavior: 'domain',
+            customFormat: 'mrs',
+            customUrl: 'https://github.com/legiz-ru/mihomo-rule-sets/raw/main/re-filter/domain-rule.mrs',
+            customPath: './re-filter/domain-rule.mrs',
+            customInterval: 86400
+        },
+        'refilter-ips': {
+            name: 'Re-filter IP',
+            icon: '🌐',
+            category: 'it',
+            customType: 'http',
+            customBehavior: 'ipcidr',
+            customFormat: 'mrs',
+            customUrl: 'https://github.com/legiz-ru/mihomo-rule-sets/raw/main/re-filter/ip-rule.mrs',
+            customPath: './re-filter/ip-rule.mrs',
+            customInterval: 86400
+        },
+        'torrent-trackers': {
+            name: 'Торрент-трекеры',
+            icon: '🧲',
+            category: 'other',
+            customType: 'http',
+            customBehavior: 'domain',
+            customFormat: 'mrs',
+            customUrl: 'https://github.com/legiz-ru/mihomo-rule-sets/raw/main/other/torrent-trackers.mrs',
+            customPath: './other/torrent-trackers.mrs',
+            customInterval: 86400
+        },
+        'torrent-websites': {
+            name: 'Торрент-сайты',
+            icon: '🌊',
+            category: 'other',
+            customType: 'http',
+            customBehavior: 'domain',
+            customFormat: 'mrs',
+            customUrl: 'https://github.com/legiz-ru/mihomo-rule-sets/raw/main/other/torrent-websites.mrs',
+            customPath: './other/torrent-websites.mrs',
+            customInterval: 86400
+        },
+        'torrent-clients': {
+            name: 'Торрент-клиенты',
+            icon: '📥',
+            category: 'other',
+            customType: 'http',
+            customBehavior: 'classical',
+            customFormat: 'yaml',
+            customUrl: 'https://github.com/legiz-ru/mihomo-rule-sets/raw/main/other/torrent-clients.yaml',
+            customPath: './other/torrent-clients.yaml',
+            customInterval: 86400
+        },
+        'games-direct': {
+            name: 'Игры (прямой трафик)',
+            icon: '🎮',
+            category: 'games',
+            customType: 'http',
+            customBehavior: 'classical',
+            customFormat: 'yaml',
+            customUrl: 'https://github.com/legiz-ru/mihomo-rule-sets/raw/main/other/games-direct.yaml',
+            customPath: './other/games-direct.yaml',
+            customInterval: 86400
+        },
+        'ru-app-list': {
+            name: 'Российские мобильные приложения',
+            icon: '📱',
+            category: 'work',
+            customType: 'http',
+            customBehavior: 'classical',
+            customFormat: 'yaml',
+            customUrl: 'https://github.com/legiz-ru/mihomo-rule-sets/raw/main/other/ru-app-list.yaml',
+            customPath: './other/ru-app-list.yaml',
+            customInterval: 86400
+        },
+        'discord-voice-ips': {
+            name: 'Discord Voice IP',
+            icon: '🎙️',
+            category: 'social',
+            customType: 'http',
+            customBehavior: 'ipcidr',
+            customFormat: 'mrs',
+            customUrl: 'https://github.com/legiz-ru/mihomo-rule-sets/raw/main/other/discord-voice-ip-list.mrs',
+            customPath: './other/discord-voice-ips.mrs',
+            customInterval: 86400
+        },
+        'antifilter-community': {
+            name: 'Antifilter Community',
+            icon: '🛡️',
+            category: 'security',
+            customType: 'http',
+            customBehavior: 'domain',
+            customFormat: 'mrs',
+            customUrl: 'https://github.com/legiz-ru/mihomo-rule-sets/raw/main/ru-bundle/antifilter-community.mrs',
+            customPath: './ru-bundle/antifilter-community.mrs',
+            customInterval: 86400
+        },
+        'no-russia-hosts': {
+            name: 'No-Russia Hosts',
+            icon: '🚀',
+            category: 'security',
+            customType: 'http',
+            customBehavior: 'domain',
+            customFormat: 'mrs',
+            customUrl: 'https://github.com/legiz-ru/mihomo-rule-sets/raw/main/ru-bundle/no-russia-hosts.mrs',
+            customPath: './ru-bundle/no-russia-hosts.mrs',
+            customInterval: 86400
+        },
+        'itdoginfo-inside-russia': {
+            name: 'Itdoginfo Inside Russia',
+            icon: '📡',
+            category: 'security',
+            customType: 'http',
+            customBehavior: 'domain',
+            customFormat: 'mrs',
+            customUrl: 'https://github.com/legiz-ru/mihomo-rule-sets/raw/main/ru-bundle/itdoginfo-inside-russia.mrs',
+            customPath: './ru-bundle/itdoginfo-inside-russia.mrs',
+            customInterval: 86400
+        }
     }
 };
 
@@ -523,7 +713,6 @@ function populateAuthorSelect() {
         const author = AUTHORS[key];
         const stars = getStars(author.rating);
         option.value = key;
-        // Имя слева, звёзды справа
         option.textContent = `${author.name}  ${stars}`;
         if (key === currentAuthor) option.selected = true;
         select.appendChild(option);
@@ -594,14 +783,25 @@ function downloadConfig() {
             const key = card.dataset.rule;
             const rule = rules[key];
             
+            // Проверяем, есть ли у правила кастомные параметры
             if (rule.customType) {
-                selectedRules.push(`  ${key}:
+                // Для кастомных правил (runetfreedom, legiz и др.)
+                let ruleString = `  ${key}:
     type: ${rule.customType}
-    behavior: ${rule.customType === 'ipcidr' ? 'ipcidr' : 'domain'}
-    url: "${rule.customUrl}"
+    behavior: ${rule.customBehavior || 'domain'}`;
+                
+                // Добавляем format, если он указан
+                if (rule.customFormat) {
+                    ruleString += `\n    format: ${rule.customFormat}`;
+                }
+                
+                ruleString += `\n    url: "${rule.customUrl}"
     path: ${rule.customPath}
-    interval: ${rule.customInterval}`);
+    interval: ${rule.customInterval}`;
+                
+                selectedRules.push(ruleString);
             } else {
+                // Стандартный формат для остальных авторов
                 selectedRules.push(`  ${key}:
     type: http
     behavior: domain
