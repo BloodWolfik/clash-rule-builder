@@ -10,12 +10,13 @@ body {
     color: #e0e0e0;
     min-height: 100vh;
     display: flex;
-    justify-content: flex-start;  /* ← теперь всё прижато к левому краю */
+    justify-content: flex-start;
     padding: 20px;
+    padding-left: 60px;
     gap: 24px;
 }
 
-/* ===== САЙДБАР — СЛЕВА ===== */
+/* ===== САЙДБАР — ПРИЖИМАЕМ К ЛЕВОМУ КРАЮ ===== */
 .sidebar {
     width: 260px;
     flex-shrink: 0;
@@ -24,6 +25,8 @@ body {
     align-self: flex-start;
     max-height: calc(100vh - 40px);
     overflow-y: auto;
+    margin-right: auto;
+    margin-left: 0;
 }
 
 .sidebar-inner {
@@ -70,12 +73,12 @@ body {
     flex-shrink: 0;
 }
 
-/* ===== ОСНОВНОЙ КОНТЕНТ — ПРИДВИНУТ К САЙДБАРУ ===== */
+/* ===== ОСНОВНОЙ КОНТЕНТ ===== */
 .main-content {
     flex: 1;
     max-width: 1100px;
     min-width: 0;
-    margin-left: 100px;
+    margin-left: 40px;
 }
 
 .container {
@@ -179,19 +182,19 @@ header p {
     box-shadow: 0 4px 20px rgba(123, 47, 252, 0.3);
 }
 
-/* Сетка правил */
+/* ===== СЕТКА ПРАВИЛ — УМЕНЬШЕННЫЕ ЯЧЕЙКИ ===== */
 .rules-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
-    gap: 12px;
+    grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+    gap: 8px;
     margin-bottom: 30px;
-    min-height: 120px;
+    min-height: 200px;
 }
 
 .rule-card {
     background: #1a1a1a;
-    padding: 16px 12px;
-    border-radius: 14px;
+    padding: 12px 8px;
+    border-radius: 12px;
     border: 1px solid #2a2a2a;
     transition: none;
     display: flex;
@@ -228,27 +231,28 @@ header p {
 }
 
 .rule-icon {
-    font-size: 30px;
-    margin-bottom: 6px;
+    font-size: 22px;
+    margin-bottom: 4px;
     position: relative;
     z-index: 1;
 }
 
 .rule-name {
     font-weight: 600;
-    font-size: 13px;
-    margin-bottom: 10px;
+    font-size: 11px;
+    margin-bottom: 8px;
     position: relative;
     z-index: 1;
     color: #e0e0e0;
+    line-height: 1.2;
 }
 
-/* Toggle Switch */
+/* Toggle Switch — уменьшенный */
 .switch {
     position: relative;
     display: inline-block;
-    width: 38px;
-    height: 20px;
+    width: 32px;
+    height: 18px;
     flex-shrink: 0;
     z-index: 1;
 }
@@ -268,14 +272,14 @@ header p {
     bottom: 0;
     background: #333;
     transition: .3s;
-    border-radius: 20px;
+    border-radius: 18px;
 }
 
 .slider:before {
     content: "";
     position: absolute;
-    height: 14px;
-    width: 14px;
+    height: 12px;
+    width: 12px;
     left: 3px;
     bottom: 3px;
     background: #666;
@@ -288,7 +292,7 @@ header p {
 }
 
 .switch input:checked + .slider:before {
-    transform: translateX(18px);
+    transform: translateX(14px);
     background: #fff;
 }
 
@@ -357,6 +361,7 @@ header p {
         flex-direction: column;
         align-items: center;
         padding: 16px;
+        padding-left: 16px;
         gap: 16px;
         justify-content: center;
     }
@@ -365,6 +370,8 @@ header p {
         width: 100%;
         position: static;
         max-height: none;
+        margin-right: 0;
+        margin-left: 0;
     }
 
     .sidebar-inner {
@@ -395,10 +402,17 @@ header p {
 
     .main-content {
         max-width: 100%;
+        margin-left: 0;
+        margin-right: 0;
     }
 
     .selector-group {
         max-width: 100%;
+    }
+
+    .rules-grid {
+        grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+        gap: 6px;
     }
 }
 
@@ -412,20 +426,37 @@ header p {
     }
     
     .rules-grid {
-        grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
-        gap: 8px;
+        grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+        gap: 6px;
     }
     
     .rule-card {
-        padding: 12px 8px;
+        padding: 10px 6px;
+        border-radius: 10px;
     }
     
     .rule-icon {
-        font-size: 24px;
+        font-size: 18px;
     }
     
     .rule-name {
-        font-size: 11px;
+        font-size: 10px;
+    }
+
+    .switch {
+        width: 28px;
+        height: 16px;
+    }
+
+    .slider:before {
+        height: 10px;
+        width: 10px;
+        left: 3px;
+        bottom: 3px;
+    }
+
+    .switch input:checked + .slider:before {
+        transform: translateX(12px);
     }
 
     .sidebar-inner {
