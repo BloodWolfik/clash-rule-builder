@@ -7,69 +7,57 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- САЙДБАР -->
-    <aside class="sidebar">
-        <div class="sidebar-inner">
-            <div class="sidebar-title">📌 Полезные ссылки</div>
-            
-            <a href="https://bloodwolfik.github.io/Sites/" target="_blank" class="sidebar-link">
-                <span class="sidebar-icon">⚔️</span>
-                Clash иконки
-            </a>
-            
-            <a href="https://help-guide.notion.site/AWG-1-5-2-0-2752684dab0d805092e4cd2106297224" target="_blank" class="sidebar-link">
-                <span class="sidebar-icon">📋</span>
-                Список клиентов AWG
-            </a>
-            
-            <a href="https://generator-warp.github.io/" target="_blank" class="sidebar-link">
-                <span class="sidebar-icon">🌀</span>
-                Warp Генератор
-            </a>
-            
-            <a href="https://t.me/warp_generator_bot" target="_blank" class="sidebar-link">
-                <span class="sidebar-icon">🤖</span>
-                Бот Telegram llimonix
-            </a>
-        </div>
-    </aside>
-
-    <!-- ОСНОВНОЙ КОНТЕНТ -->
-    <main class="main-content">
-        <div class="container">
-            <header>
-                <h1>⚡ Mihomo Rules Builder</h1>
-                <p>Выбери провайдера, категорию и правила для своего конфига</p>
-            </header>
-
-            <!-- Выбор автора -->
-            <div class="selector-group">
-                <label for="authorSelect">📦 Провайдер правил</label>
-                <select id="authorSelect">
-                    <!-- Заполняется из JavaScript -->
-                </select>
+    <!-- ОБЩАЯ ОБЁРТКА -->
+    <div class="wrapper">
+        <!-- САЙДБАР — ЛЕВЫЙ КРАЙ -->
+        <aside class="sidebar">
+            <div class="sidebar-inner">
+                <div class="sidebar-title">📌 Полезные ссылки</div>
+                <a href="https://bloodwolfik.github.io/Sites/" target="_blank" class="sidebar-link">
+                    <span class="sidebar-icon">⚔️</span>
+                    Clash иконки
+                </a>
+                <a href="https://help-guide.notion.site/AWG-1-5-2-0-2752684dab0d805092e4cd2106297224" target="_blank" class="sidebar-link">
+                    <span class="sidebar-icon">📋</span>
+                    Список клиентов AWG
+                </a>
+                <a href="https://generator-warp.github.io/" target="_blank" class="sidebar-link">
+                    <span class="sidebar-icon">🌀</span>
+                    Warp Генератор
+                </a>
+                <a href="https://t.me/warp_generator_bot" target="_blank" class="sidebar-link">
+                    <span class="sidebar-icon">🤖</span>
+                    Бот Telegram
+                </a>
             </div>
+        </aside>
 
-            <!-- Категории -->
-            <div class="categories" id="categories">
-                <!-- Заполняется из JavaScript -->
+        <!-- ОСНОВНОЙ КОНТЕНТ — ПО ЦЕНТРУ -->
+        <main class="main-content">
+            <div class="container">
+                <header>
+                    <h1>⚡ Mihomo Rules Builder</h1>
+                    <p>Выбери провайдера, категорию и правила для своего конфига</p>
+                </header>
+
+                <div class="selector-group">
+                    <label for="authorSelect">📦 Провайдер правил</label>
+                    <select id="authorSelect"></select>
+                </div>
+
+                <div class="categories" id="categories"></div>
+                <div class="rules-grid" id="rulesGrid"></div>
+
+                <div class="controls">
+                    <button id="selectAllBtn" class="btn btn-secondary">✅ Выбрать все</button>
+                    <button id="deselectAllBtn" class="btn btn-secondary">❌ Снять все</button>
+                    <span id="selectedCount" class="selected-count">Выбрано: 0</span>
+                </div>
+
+                <button id="downloadBtn" class="download-btn">📥 Скачать config.yaml</button>
             </div>
-
-            <!-- Сетка правил -->
-            <div class="rules-grid" id="rulesGrid"></div>
-
-            <!-- Управление -->
-            <div class="controls">
-                <button id="selectAllBtn" class="btn btn-secondary">✅ Выбрать все</button>
-                <button id="deselectAllBtn" class="btn btn-secondary">❌ Снять все</button>
-                <span id="selectedCount" class="selected-count">Выбрано: 0</span>
-            </div>
-
-            <button id="downloadBtn" class="download-btn">
-                📥 Скачать config.yaml
-            </button>
-        </div>
-    </main>
+        </main>
+    </div>
 
     <script src="script.js"></script>
 </body>
