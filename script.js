@@ -16,6 +16,21 @@ const AUTHORS = {
         name: 'RunetFreedom',
         baseUrl: 'https://raw.githubusercontent.com/runetfreedom/russia-v2ray-rules-dat/release/',
         description: 'Правила для обхода блокировок РКН'
+    },
+    loyalsoldier: {
+        name: 'Loyalsoldier (Clash)',
+        baseUrl: 'https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/',
+        description: 'Классический набор правил Clash (GFW, реклама, прямые домены)'
+    },
+    acl4ssr: {
+        name: 'ACL4SSR',
+        baseUrl: 'https://cdn.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/Ruleset/',
+        description: 'Огромный набор правил для игр, стриминга, соцсетей и рекламы'
+    },
+    v2ray: {
+        name: 'v2ray-rules-dat',
+        baseUrl: 'https://cdn.jsdelivr.net/gh/v2ray/v2ray-core/release/config/',
+        description: 'Расширенная база geoip.dat и geosite.dat для V2Ray/Xray'
     }
 };
 
@@ -23,7 +38,7 @@ const AUTHORS = {
 // ПРАВИЛА ДЛЯ КАЖДОГО АВТОРА
 // ============================================
 const RULES_BY_AUTHOR = {
-    // ----- hydraponique -----
+    // ===== hydraponique =====
     hydraponique: {
         microsoft: { name: 'Microsoft', icon: '🪟', category: 'work' },
         'category-ads': { name: 'Блокировка рекламы', icon: '🚫', category: 'other' },
@@ -111,7 +126,7 @@ const RULES_BY_AUTHOR = {
         zoom: { name: 'Zoom', icon: '📹', category: 'other' }
     },
 
-    // ----- MetaCubeX -----
+    // ===== MetaCubeX =====
     metacubex: {
         google: { name: 'Google', icon: '🔴', category: 'it' },
         youtube: { name: 'YouTube', icon: '▶️', category: 'streaming' },
@@ -197,13 +212,12 @@ const RULES_BY_AUTHOR = {
         bilibili: { name: 'Bilibili', icon: '📺', category: 'streaming' }
     },
 
-    // ----- RunetFreedom -----
+    // ===== RunetFreedom =====
     runetfreedom: {
         'russia-blocked-ip': {
             name: 'Блокировка IP РФ',
             icon: '🚫',
             category: 'security',
-            // Специальные параметры для этого правила
             customType: 'ipcidr',
             customUrl: 'https://raw.githubusercontent.com/runetfreedom/russia-v2ray-rules-dat/release/geoip.dat',
             customPath: './ruleset/russia-blocked-ip.dat',
@@ -218,6 +232,87 @@ const RULES_BY_AUTHOR = {
             customPath: './ruleset/russia-blocked-domain.dat',
             customInterval: 43200
         }
+    },
+
+    // ===== Loyalsoldier =====
+    loyalsoldier: {
+        'direct': { name: 'Прямые домены', icon: '➡️', category: 'it' },
+        'proxy': { name: 'Прокси домены', icon: '🔄', category: 'it' },
+        'reject': { name: 'Реклама и трекеры', icon: '🚫', category: 'other' },
+        'gfw': { name: 'GFW List', icon: '🧱', category: 'it' },
+        'telegram': { name: 'Telegram', icon: '✈️', category: 'social' },
+        'google': { name: 'Google', icon: '🔴', category: 'it' },
+        'youtube': { name: 'YouTube', icon: '▶️', category: 'streaming' },
+        'netflix': { name: 'Netflix', icon: '🎥', category: 'streaming' },
+        'spotify': { name: 'Spotify', icon: '🎶', category: 'music' },
+        'steam': { name: 'Steam', icon: '🎮', category: 'games' },
+        'discord': { name: 'Discord', icon: '💬', category: 'social' },
+        'twitter': { name: 'Twitter/X', icon: '🐦', category: 'social' },
+        'facebook': { name: 'Facebook', icon: '👤', category: 'social' },
+        'instagram': { name: 'Instagram', icon: '📸', category: 'social' },
+        'tiktok': { name: 'TikTok', icon: '🎵', category: 'social' },
+        'reddit': { name: 'Reddit', icon: '🤖', category: 'social' },
+        'twitch': { name: 'Twitch', icon: '🎮', category: 'streaming' },
+        'github': { name: 'GitHub', icon: '🐙', category: 'it' },
+        'microsoft': { name: 'Microsoft', icon: '🪟', category: 'work' }
+    },
+
+    // ===== ACL4SSR =====
+    acl4ssr: {
+        'Advertising': { name: 'Реклама (общая)', icon: '🚫', category: 'other' },
+        'AdvertisingLite': { name: 'Реклама (легкая)', icon: '🔕', category: 'other' },
+        'AdvertisingEasy': { name: 'Реклама (базовая)', icon: '📢', category: 'other' },
+        'BanProgramAD': { name: 'Реклама в программах', icon: '💻', category: 'other' },
+        'AppStore': { name: 'App Store', icon: '📱', category: 'other' },
+        'China': { name: 'Китайские сайты', icon: '🇨🇳', category: 'it' },
+        'ChinaCompany': { name: 'Китайские компании', icon: '🏢', category: 'it' },
+        'ChinaMedia': { name: 'Китайские медиа', icon: '📺', category: 'streaming' },
+        'ChinaIP': { name: 'Китайские IP', icon: '🌐', category: 'it' },
+        'DNS': { name: 'DNS', icon: '🌐', category: 'security' },
+        'Google': { name: 'Google', icon: '🔴', category: 'it' },
+        'Netflix': { name: 'Netflix', icon: '🎥', category: 'streaming' },
+        'Youtube': { name: 'YouTube', icon: '▶️', category: 'streaming' },
+        'Spotify': { name: 'Spotify', icon: '🎶', category: 'music' },
+        'Steam': { name: 'Steam', icon: '🎮', category: 'games' },
+        'SteamChina': { name: 'Steam Китай', icon: '🎮', category: 'games' },
+        'Epic': { name: 'Epic Games', icon: '🎮', category: 'games' },
+        'Xbox': { name: 'Xbox', icon: '🎮', category: 'games' },
+        'PlayStation': { name: 'PlayStation', icon: '🎮', category: 'games' },
+        'Telegram': { name: 'Telegram', icon: '✈️', category: 'social' },
+        'Twitter': { name: 'Twitter/X', icon: '🐦', category: 'social' },
+        'Facebook': { name: 'Facebook', icon: '👤', category: 'social' },
+        'Instagram': { name: 'Instagram', icon: '📸', category: 'social' },
+        'TikTok': { name: 'TikTok', icon: '🎵', category: 'social' },
+        'Reddit': { name: 'Reddit', icon: '🤖', category: 'social' },
+        'Discord': { name: 'Discord', icon: '💬', category: 'social' },
+        'GitHub': { name: 'GitHub', icon: '🐙', category: 'it' },
+        'Microsoft': { name: 'Microsoft', icon: '🪟', category: 'work' },
+        'Apple': { name: 'Apple', icon: '🍎', category: 'other' },
+        'Amazon': { name: 'Amazon', icon: '🛒', category: 'shopping' },
+        'Disney': { name: 'Disney+', icon: '🏰', category: 'streaming' },
+        'HBO': { name: 'HBO', icon: '🎬', category: 'streaming' },
+        'Hulu': { name: 'Hulu', icon: '📺', category: 'streaming' },
+        'Bilibili': { name: 'Bilibili', icon: '📺', category: 'streaming' }
+    },
+
+    // ===== v2ray-rules-dat =====
+    v2ray: {
+        'geoip-cn': { name: 'GeoIP Китай', icon: '🇨🇳', category: 'it' },
+        'geoip-hk': { name: 'GeoIP Гонконг', icon: '🇭🇰', category: 'it' },
+        'geoip-tw': { name: 'GeoIP Тайвань', icon: '🇹🇼', category: 'it' },
+        'geoip-mo': { name: 'GeoIP Макао', icon: '🇲🇴', category: 'it' },
+        'geoip-us': { name: 'GeoIP США', icon: '🇺🇸', category: 'it' },
+        'geoip-jp': { name: 'GeoIP Япония', icon: '🇯🇵', category: 'it' },
+        'geoip-kr': { name: 'GeoIP Корея', icon: '🇰🇷', category: 'it' },
+        'geoip-de': { name: 'GeoIP Германия', icon: '🇩🇪', category: 'it' },
+        'geoip-gb': { name: 'GeoIP Великобритания', icon: '🇬🇧', category: 'it' },
+        'geoip-fr': { name: 'GeoIP Франция', icon: '🇫🇷', category: 'it' },
+        'geosite-cn': { name: 'GeoSite Китай', icon: '🏷️', category: 'it' },
+        'geosite-category-ads': { name: 'GeoSite Реклама', icon: '🚫', category: 'other' },
+        'geosite-category-porn': { name: 'GeoSite 18+', icon: '🔞', category: 'other' },
+        'geosite-category-social': { name: 'GeoSite Соцсети', icon: '🌐', category: 'social' },
+        'geosite-category-games': { name: 'GeoSite Игры', icon: '🎮', category: 'games' },
+        'geosite-category-media': { name: 'GeoSite Медиа', icon: '📺', category: 'streaming' }
     }
 };
 
@@ -344,9 +439,7 @@ function downloadConfig() {
             const key = card.dataset.rule;
             const rule = rules[key];
             
-            // Проверяем, есть ли у правила кастомные параметры
             if (rule.customType) {
-                // Для runetfreedom — используем кастомные параметры
                 selectedRules.push(`  ${key}:
     type: ${rule.customType}
     behavior: ${rule.customType === 'ipcidr' ? 'ipcidr' : 'domain'}
@@ -354,7 +447,6 @@ function downloadConfig() {
     path: ${rule.customPath}
     interval: ${rule.customInterval}`);
             } else {
-                // Стандартный формат для остальных авторов
                 selectedRules.push(`  ${key}:
     type: http
     behavior: domain
@@ -399,13 +491,11 @@ document.addEventListener('DOMContentLoaded', () => {
     populateCategories();
     renderRules();
 
-    // Смена автора
     document.getElementById('authorSelect').addEventListener('change', function() {
         currentAuthor = this.value;
         renderRules();
     });
 
-    // Кнопки "Выбрать все" / "Снять все"
     document.getElementById('selectAllBtn').addEventListener('click', () => {
         document.querySelectorAll('.rule-card:not(.hidden) input[type="checkbox"]').forEach(cb => cb.checked = true);
         updateSelectedCount();
@@ -416,13 +506,11 @@ document.addEventListener('DOMContentLoaded', () => {
         updateSelectedCount();
     });
 
-    // Обновление счетчика
     document.addEventListener('change', (e) => {
         if (e.target.closest('.switch')) {
             updateSelectedCount();
         }
     });
 
-    // Кнопка скачивания
     document.getElementById('downloadBtn').addEventListener('click', downloadConfig);
 });
