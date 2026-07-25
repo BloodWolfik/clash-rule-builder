@@ -197,6 +197,9 @@ header p {
     text-align: center;
     position: relative;
     overflow: hidden;
+    max-width: 140px;          /* ← не даём карточке растягиваться */
+    justify-self: center;      /* ← центрируем карточку */
+    width: 100%;
 }
 
 .rule-card::before {
