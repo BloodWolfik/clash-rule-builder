@@ -1,36 +1,72 @@
 // ============================================
-// АВТОРЫ
+// АВТОРЫ С РЕЙТИНГОМ
 // ============================================
 const AUTHORS = {
     hydraponique: {
         name: 'RoscomVPN (hydraponique)',
         baseUrl: 'https://cdn.jsdelivr.net/gh/hydraponique/roscomvpn-geosite/release/mihomo/',
-        description: 'Крупнейший набор правил для рунета'
+        description: 'Крупнейший набор правил для рунета',
+        rating: 5
     },
     metacubex: {
         name: 'MetaCubeX (Mihomo)',
         baseUrl: 'https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@mihomo/',
-        description: 'Официальные правила от MetaCubeX для Mihomo'
+        description: 'Официальные правила от MetaCubeX для Mihomo',
+        rating: 5
     },
     runetfreedom: {
         name: 'RunetFreedom',
         baseUrl: 'https://raw.githubusercontent.com/runetfreedom/russia-v2ray-rules-dat/release/',
-        description: 'Правила для обхода блокировок РКН'
+        description: 'Правила для обхода блокировок РКН',
+        rating: 4
     },
     loyalsoldier: {
         name: 'Loyalsoldier (Clash)',
         baseUrl: 'https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/',
-        description: 'Классический набор правил Clash (GFW, реклама, прямые домены)'
+        description: 'Классический набор правил Clash (GFW, реклама, прямые домены)',
+        rating: 5
     },
     acl4ssr: {
         name: 'ACL4SSR',
         baseUrl: 'https://cdn.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/Ruleset/',
-        description: 'Огромный набор правил для игр, стриминга, соцсетей и рекламы'
+        description: 'Огромный набор правил для игр, стриминга, соцсетей и рекламы',
+        rating: 4
     },
     v2ray: {
         name: 'v2ray-rules-dat',
         baseUrl: 'https://cdn.jsdelivr.net/gh/v2ray/v2ray-core/release/config/',
-        description: 'Расширенная база geoip.dat и geosite.dat для V2Ray/Xray'
+        description: 'Расширенная база geoip.dat и geosite.dat для V2Ray/Xray',
+        rating: 4
+    },
+    blackmatrix7: {
+        name: 'BlackMatrix7',
+        baseUrl: 'https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/',
+        description: 'Огромная коллекция правил для iOS, Clash, Surge, Loon',
+        rating: 4
+    },
+    dustinwin: {
+        name: 'DustinWin (GEO)',
+        baseUrl: 'https://cdn.jsdelivr.net/gh/dustinwin/clash-rules@main/',
+        description: 'Расширенные GEO-данные и готовые сборки правил',
+        rating: 4
+    },
+    quixoticheart: {
+        name: 'QuixoticHeart (MRS)',
+        baseUrl: 'https://cdn.jsdelivr.net/gh/QuixoticHeart/mihomo-rules@release/',
+        description: 'Оптимизированные бинарные правила (.mrs) для Mihomo',
+        rating: 3
+    },
+    piancat: {
+        name: 'PianCat (Higanoneko)',
+        baseUrl: 'https://cdn.jsdelivr.net/gh/higanoneko/clash-rules@main/',
+        description: 'Готовые конфигурации и оверлеи для Mihomo',
+        rating: 3
+    },
+    divineengine: {
+        name: 'DivineEngine',
+        baseUrl: 'https://cdn.jsdelivr.net/gh/DivineEngine/Profiles@master/Clash/',
+        description: 'Профессиональные правила от DivineEngine',
+        rating: 4
     }
 };
 
@@ -313,6 +349,113 @@ const RULES_BY_AUTHOR = {
         'geosite-category-social': { name: 'GeoSite Соцсети', icon: '🌐', category: 'social' },
         'geosite-category-games': { name: 'GeoSite Игры', icon: '🎮', category: 'games' },
         'geosite-category-media': { name: 'GeoSite Медиа', icon: '📺', category: 'streaming' }
+    },
+
+    // ===== BlackMatrix7 =====
+    blackmatrix7: {
+        'Telegram': { name: 'Telegram', icon: '✈️', category: 'social' },
+        'Twitter': { name: 'Twitter/X', icon: '🐦', category: 'social' },
+        'YouTube': { name: 'YouTube', icon: '▶️', category: 'streaming' },
+        'Netflix': { name: 'Netflix', icon: '🎥', category: 'streaming' },
+        'Spotify': { name: 'Spotify', icon: '🎶', category: 'music' },
+        'Steam': { name: 'Steam', icon: '🎮', category: 'games' },
+        'Discord': { name: 'Discord', icon: '💬', category: 'social' },
+        'GitHub': { name: 'GitHub', icon: '🐙', category: 'it' },
+        'Microsoft': { name: 'Microsoft', icon: '🪟', category: 'work' },
+        'Apple': { name: 'Apple', icon: '🍎', category: 'other' },
+        'Amazon': { name: 'Amazon', icon: '🛒', category: 'shopping' },
+        'Google': { name: 'Google', icon: '🔴', category: 'it' },
+        'Facebook': { name: 'Facebook', icon: '👤', category: 'social' },
+        'Instagram': { name: 'Instagram', icon: '📸', category: 'social' },
+        'TikTok': { name: 'TikTok', icon: '🎵', category: 'social' },
+        'Twitch': { name: 'Twitch', icon: '🎮', category: 'streaming' },
+        'Disney': { name: 'Disney+', icon: '🏰', category: 'streaming' },
+        'HBO': { name: 'HBO', icon: '🎬', category: 'streaming' },
+        'Xbox': { name: 'Xbox', icon: '🎮', category: 'games' },
+        'PlayStation': { name: 'PlayStation', icon: '🎮', category: 'games' },
+        'Epic': { name: 'Epic Games', icon: '🎮', category: 'games' }
+    },
+
+    // ===== DustinWin =====
+    dustinwin: {
+        'geoip-cn': { name: 'GeoIP Китай', icon: '🇨🇳', category: 'it' },
+        'geoip-hk': { name: 'GeoIP Гонконг', icon: '🇭🇰', category: 'it' },
+        'geoip-tw': { name: 'GeoIP Тайвань', icon: '🇹🇼', category: 'it' },
+        'geoip-us': { name: 'GeoIP США', icon: '🇺🇸', category: 'it' },
+        'geoip-jp': { name: 'GeoIP Япония', icon: '🇯🇵', category: 'it' },
+        'geoip-kr': { name: 'GeoIP Корея', icon: '🇰🇷', category: 'it' },
+        'geoip-de': { name: 'GeoIP Германия', icon: '🇩🇪', category: 'it' },
+        'geoip-gb': { name: 'GeoIP Великобритания', icon: '🇬🇧', category: 'it' },
+        'geoip-fr': { name: 'GeoIP Франция', icon: '🇫🇷', category: 'it' },
+        'geosite-cn': { name: 'GeoSite Китай', icon: '🏷️', category: 'it' },
+        'geosite-category-ads': { name: 'GeoSite Реклама', icon: '🚫', category: 'other' },
+        'geosite-category-social': { name: 'GeoSite Соцсети', icon: '🌐', category: 'social' },
+        'geosite-category-games': { name: 'GeoSite Игры', icon: '🎮', category: 'games' },
+        'geosite-category-media': { name: 'GeoSite Медиа', icon: '📺', category: 'streaming' },
+        'geosite-category-porn': { name: 'GeoSite 18+', icon: '🔞', category: 'other' }
+    },
+
+    // ===== QuixoticHeart (MRS) =====
+    quixoticheart: {
+        'google': { name: 'Google', icon: '🔴', category: 'it' },
+        'youtube': { name: 'YouTube', icon: '▶️', category: 'streaming' },
+        'netflix': { name: 'Netflix', icon: '🎥', category: 'streaming' },
+        'spotify': { name: 'Spotify', icon: '🎶', category: 'music' },
+        'telegram': { name: 'Telegram', icon: '✈️', category: 'social' },
+        'steam': { name: 'Steam', icon: '🎮', category: 'games' },
+        'github': { name: 'GitHub', icon: '🐙', category: 'it' },
+        'discord': { name: 'Discord', icon: '💬', category: 'social' },
+        'twitch': { name: 'Twitch', icon: '🎮', category: 'streaming' },
+        'tiktok': { name: 'TikTok', icon: '🎵', category: 'social' },
+        'facebook': { name: 'Facebook', icon: '👤', category: 'social' },
+        'instagram': { name: 'Instagram', icon: '📸', category: 'social' },
+        'twitter': { name: 'Twitter/X', icon: '🐦', category: 'social' },
+        'reddit': { name: 'Reddit', icon: '🤖', category: 'social' },
+        'microsoft': { name: 'Microsoft', icon: '🪟', category: 'work' }
+    },
+
+    // ===== PianCat =====
+    piancat: {
+        'google': { name: 'Google', icon: '🔴', category: 'it' },
+        'youtube': { name: 'YouTube', icon: '▶️', category: 'streaming' },
+        'netflix': { name: 'Netflix', icon: '🎥', category: 'streaming' },
+        'spotify': { name: 'Spotify', icon: '🎶', category: 'music' },
+        'telegram': { name: 'Telegram', icon: '✈️', category: 'social' },
+        'steam': { name: 'Steam', icon: '🎮', category: 'games' },
+        'github': { name: 'GitHub', icon: '🐙', category: 'it' },
+        'discord': { name: 'Discord', icon: '💬', category: 'social' },
+        'twitch': { name: 'Twitch', icon: '🎮', category: 'streaming' },
+        'tiktok': { name: 'TikTok', icon: '🎵', category: 'social' },
+        'facebook': { name: 'Facebook', icon: '👤', category: 'social' },
+        'instagram': { name: 'Instagram', icon: '📸', category: 'social' },
+        'twitter': { name: 'Twitter/X', icon: '🐦', category: 'social' },
+        'microsoft': { name: 'Microsoft', icon: '🪟', category: 'work' }
+    },
+
+    // ===== DivineEngine =====
+    divineengine: {
+        'Google': { name: 'Google', icon: '🔴', category: 'it' },
+        'YouTube': { name: 'YouTube', icon: '▶️', category: 'streaming' },
+        'Netflix': { name: 'Netflix', icon: '🎥', category: 'streaming' },
+        'Spotify': { name: 'Spotify', icon: '🎶', category: 'music' },
+        'Telegram': { name: 'Telegram', icon: '✈️', category: 'social' },
+        'Steam': { name: 'Steam', icon: '🎮', category: 'games' },
+        'GitHub': { name: 'GitHub', icon: '🐙', category: 'it' },
+        'Discord': { name: 'Discord', icon: '💬', category: 'social' },
+        'Twitch': { name: 'Twitch', icon: '🎮', category: 'streaming' },
+        'TikTok': { name: 'TikTok', icon: '🎵', category: 'social' },
+        'Facebook': { name: 'Facebook', icon: '👤', category: 'social' },
+        'Instagram': { name: 'Instagram', icon: '📸', category: 'social' },
+        'Twitter': { name: 'Twitter/X', icon: '🐦', category: 'social' },
+        'Reddit': { name: 'Reddit', icon: '🤖', category: 'social' },
+        'Microsoft': { name: 'Microsoft', icon: '🪟', category: 'work' },
+        'Apple': { name: 'Apple', icon: '🍎', category: 'other' },
+        'Amazon': { name: 'Amazon', icon: '🛒', category: 'shopping' },
+        'Disney': { name: 'Disney+', icon: '🏰', category: 'streaming' },
+        'HBO': { name: 'HBO', icon: '🎬', category: 'streaming' },
+        'Xbox': { name: 'Xbox', icon: '🎮', category: 'games' },
+        'Epic': { name: 'Epic Games', icon: '🎮', category: 'games' },
+        'PlayStation': { name: 'PlayStation', icon: '🎮', category: 'games' }
     }
 };
 
@@ -339,6 +482,15 @@ const CATEGORIES = {
 // ============================================
 let currentAuthor = 'hydraponique';
 let currentCategory = 'all';
+
+// ============================================
+// ФУНКЦИЯ ДЛЯ ЗВЁЗД
+// ============================================
+function getStars(rating) {
+    const fullStars = Math.floor(rating);
+    const emptyStars = 5 - fullStars;
+    return '⭐'.repeat(fullStars) + '☆'.repeat(emptyStars);
+}
 
 // ============================================
 // ФУНКЦИИ
@@ -368,8 +520,10 @@ function populateAuthorSelect() {
     select.innerHTML = '';
     Object.keys(AUTHORS).forEach(key => {
         const option = document.createElement('option');
+        const author = AUTHORS[key];
+        const stars = getStars(author.rating);
         option.value = key;
-        option.textContent = `${AUTHORS[key].name}`;
+        option.textContent = `${stars}  ${author.name}`;
         if (key === currentAuthor) option.selected = true;
         select.appendChild(option);
     });
