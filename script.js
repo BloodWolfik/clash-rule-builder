@@ -529,21 +529,18 @@ function populateAuthorSelect() {
     });
 }
 
-function populateCategories() {
-    const container = document.getElementById('categories');
-    container.innerHTML = '';
-    Object.keys(CATEGORIES).forEach(key => {
-        const btn = document.createElement('button');
-        btn.className = `cat-btn ${key === currentCategory ? 'active' : ''}`;
-        btn.dataset.category = key;
-        btn.textContent = `${CATEGORIES[key].icon} ${CATEGORIES[key].label}`;
-        btn.addEventListener('click', function() {
-            document.querySelectorAll('.cat-btn').forEach(b => b.classList.remove('active'));
-            this.classList.add('active');
-            currentCategory = this.dataset.category;
-            filterRules();
-        });
-        container.appendChild(btn);
+function populateAuthorSelect() {
+    const select = document.getElementById('authorSelect');
+    select.innerHTML = '';
+    Object.keys(AUTHORS).forEach(key => {
+        const option = document.createElement('option');
+        const author = AUTHORS[key];
+        const stars = getStars(author.rating);
+        option.value = key;
+        // Меняем порядок: сначала имя, потом звёзды
+        option.textContent = `${author.name}  ${stars}`;
+        if (key === currentAuthor) option.selected = true;
+        select.appendChild(option);
     });
 }
 
