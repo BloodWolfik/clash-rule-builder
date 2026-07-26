@@ -80,7 +80,7 @@ const AUTHORS = {
 // ПРАВИЛА ДЛЯ КАЖДОГО АВТОРА
 // ============================================
 const RULES_BY_AUTHOR = {
-    // ===== hydraponique (обновлён по актуальному списку) =====
+    // ===== hydraponique =====
     hydraponique: {
         'apple': { name: 'Apple', icon: '🍎', category: 'other' },
         'category-ads': { name: 'Блокировка рекламы', icon: '🚫', category: 'other' },
@@ -107,7 +107,7 @@ const RULES_BY_AUTHOR = {
         'youtube': { name: 'YouTube', icon: '▶️', category: 'streaming' }
     },
 
-    // ===== MetaCubeX (GEO) — ОБНОВЛЁН =====
+    // ===== MetaCubeX (GEO) — РАСШИРЕННЫЙ =====
     metacubex: {
         // --- БОЛЬШИЕ УНИВЕРСАЛЬНЫЕ ФАЙЛЫ ---
         'geoip': {
@@ -158,6 +158,61 @@ const RULES_BY_AUTHOR = {
             customPath: './ruleset/cloudflare-ip.mrs',
             customInterval: 86400
         },
+        'cloudfront-ip': {
+            name: 'CloudFront (IP)',
+            icon: '🌩️',
+            category: 'it',
+            customType: 'http',
+            customBehavior: 'ipcidr',
+            customFormat: 'mrs',
+            customUrl: 'https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo-lite/geoip/cloudfront.mrs',
+            customPath: './ruleset/cloudfront-ip.mrs',
+            customInterval: 86400
+        },
+        'discord-ip': {
+            name: 'Discord (IP)',
+            icon: '💬',
+            category: 'social',
+            customType: 'http',
+            customBehavior: 'ipcidr',
+            customFormat: 'mrs',
+            customUrl: 'https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo-lite/geoip/discord.mrs',
+            customPath: './ruleset/discord-ip.mrs',
+            customInterval: 86400
+        },
+        'facebook-ip': {
+            name: 'Facebook (IP)',
+            icon: '👤',
+            category: 'social',
+            customType: 'http',
+            customBehavior: 'ipcidr',
+            customFormat: 'mrs',
+            customUrl: 'https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo-lite/geoip/facebook.mrs',
+            customPath: './ruleset/facebook-ip.mrs',
+            customInterval: 86400
+        },
+        'google-ip': {
+            name: 'Google (IP)',
+            icon: '🔴',
+            category: 'it',
+            customType: 'http',
+            customBehavior: 'ipcidr',
+            customFormat: 'mrs',
+            customUrl: 'https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo-lite/geoip/google.mrs',
+            customPath: './ruleset/google-ip.mrs',
+            customInterval: 86400
+        },
+        'netflix-ip': {
+            name: 'Netflix (IP)',
+            icon: '🎥',
+            category: 'streaming',
+            customType: 'http',
+            customBehavior: 'ipcidr',
+            customFormat: 'mrs',
+            customUrl: 'https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo-lite/geoip/netflix.mrs',
+            customPath: './ruleset/netflix-ip.mrs',
+            customInterval: 86400
+        },
         'private-ip': {
             name: 'Приватные IP',
             icon: '🔒',
@@ -180,8 +235,74 @@ const RULES_BY_AUTHOR = {
             customPath: './ruleset/telegram-ip.mrs',
             customInterval: 86400
         },
+        'twitter-ip': {
+            name: 'Twitter/X (IP)',
+            icon: '🐦',
+            category: 'social',
+            customType: 'http',
+            customBehavior: 'ipcidr',
+            customFormat: 'mrs',
+            customUrl: 'https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo-lite/geoip/twitter.mrs',
+            customPath: './ruleset/twitter-ip.mrs',
+            customInterval: 86400
+        },
 
         // --- ОТДЕЛЬНЫЕ ПРАВИЛА ДЛЯ ДОМЕНОВ (GEOSITE) ---
+        'discord-domain': {
+            name: 'Discord (домены)',
+            icon: '💬',
+            category: 'social',
+            customType: 'http',
+            customBehavior: 'domain',
+            customFormat: 'mrs',
+            customUrl: 'https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo-lite/geosite/discord.mrs',
+            customPath: './ruleset/discord-domain.mrs',
+            customInterval: 86400
+        },
+        'github-domain': {
+            name: 'GitHub (домены)',
+            icon: '🐙',
+            category: 'it',
+            customType: 'http',
+            customBehavior: 'domain',
+            customFormat: 'mrs',
+            customUrl: 'https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo-lite/geosite/github.mrs',
+            customPath: './ruleset/github-domain.mrs',
+            customInterval: 86400
+        },
+        'google-domain': {
+            name: 'Google (домены)',
+            icon: '🔴',
+            category: 'it',
+            customType: 'http',
+            customBehavior: 'domain',
+            customFormat: 'mrs',
+            customUrl: 'https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo-lite/geosite/google.mrs',
+            customPath: './ruleset/google-domain.mrs',
+            customInterval: 86400
+        },
+        'netflix-domain': {
+            name: 'Netflix (домены)',
+            icon: '🎥',
+            category: 'streaming',
+            customType: 'http',
+            customBehavior: 'domain',
+            customFormat: 'mrs',
+            customUrl: 'https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo-lite/geosite/netflix.mrs',
+            customPath: './ruleset/netflix-domain.mrs',
+            customInterval: 86400
+        },
+        'openai-domain': {
+            name: 'OpenAI (домены)',
+            icon: '🤖',
+            category: 'it',
+            customType: 'http',
+            customBehavior: 'domain',
+            customFormat: 'mrs',
+            customUrl: 'https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo-lite/geosite/openai.mrs',
+            customPath: './ruleset/openai-domain.mrs',
+            customInterval: 86400
+        },
         'telegram-domain': {
             name: 'Telegram (домены)',
             icon: '✈️',
@@ -191,6 +312,17 @@ const RULES_BY_AUTHOR = {
             customFormat: 'mrs',
             customUrl: 'https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo-lite/geosite/telegram.mrs',
             customPath: './ruleset/telegram-domain.mrs',
+            customInterval: 86400
+        },
+        'twitter-domain': {
+            name: 'Twitter/X (домены)',
+            icon: '🐦',
+            category: 'social',
+            customType: 'http',
+            customBehavior: 'domain',
+            customFormat: 'mrs',
+            customUrl: 'https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo-lite/geosite/twitter.mrs',
+            customPath: './ruleset/twitter-domain.mrs',
             customInterval: 86400
         },
         'youtube-domain': {
