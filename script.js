@@ -343,7 +343,7 @@ const RULES_BY_AUTHOR = {
         }
     },
 
-    // ===== Loyalsoldier (GEO) - ОСНОВНОЙ ИСТОЧНИК ГЕОДАННЫХ =====
+    // ===== Loyalsoldier (GEO) =====
     loyalsoldier: {
         'geoip': {
             name: 'GeoIP (IP-адреса)',
@@ -371,306 +371,333 @@ const RULES_BY_AUTHOR = {
         }
     },
 
-// ===== BlackMatrix7 (популярные правила) =====
-blackmatrix7: {
-    'YouTube': {
-        name: 'YouTube',
-        icon: '▶️',
-        category: 'streaming',
-        customType: 'http',
-        customBehavior: 'domain',
-        customFormat: 'yaml',
-        customUrl: 'https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/YouTube/YouTube.yaml',
-        customPath: './ruleset/YouTube.yaml',
-        customInterval: 86400
+    // ===== BlackMatrix7 (исправленный) =====
+    blackmatrix7: {
+        'AdvertisingTest': {
+            name: 'Реклама и трекеры (REJECT)',
+            icon: '🚫',
+            category: 'other',
+            customType: 'http',
+            customBehavior: 'classical',
+            customFormat: 'list',
+            customUrl: 'https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/AdvertisingTest/AdvertisingTest.list',
+            customPath: './ruleset/AdvertisingTest.list',
+            customInterval: 86400,
+            customAction: 'REJECT'
+        },
+        'Amazon': {
+            name: 'Amazon',
+            icon: '🛒',
+            category: 'shopping',
+            customType: 'http',
+            customBehavior: 'classical',
+            customFormat: 'yaml',
+            customUrl: 'https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Amazon/Amazon.yaml',
+            customPath: './ruleset/Amazon.yaml',
+            customInterval: 86400,
+            customAction: 'PROXY'
+        },
+        'Apple': {
+            name: 'Apple',
+            icon: '🍎',
+            category: 'other',
+            customType: 'http',
+            customBehavior: 'classical',
+            customFormat: 'yaml',
+            customUrl: 'https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Apple/Apple.yaml',
+            customPath: './ruleset/Apple.yaml',
+            customInterval: 86400,
+            customAction: 'PROXY'
+        },
+        'ChinaMax': {
+            name: 'Китайские домены (DIRECT)',
+            icon: '🇨🇳',
+            category: 'it',
+            customType: 'http',
+            customBehavior: 'classical',
+            customFormat: 'yaml',
+            customUrl: 'https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/ChinaMax/ChinaMax.yaml',
+            customPath: './ruleset/ChinaMax.yaml',
+            customInterval: 86400,
+            customAction: 'PROXY'
+        },
+        'Discord': {
+            name: 'Discord',
+            icon: '💬',
+            category: 'social',
+            customType: 'http',
+            customBehavior: 'classical',
+            customFormat: 'yaml',
+            customUrl: 'https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Discord/Discord.yaml',
+            customPath: './ruleset/Discord.yaml',
+            customInterval: 86400,
+            customAction: 'PROXY'
+        },
+        'Disney': {
+            name: 'Disney+',
+            icon: '🏰',
+            category: 'streaming',
+            customType: 'http',
+            customBehavior: 'classical',
+            customFormat: 'yaml',
+            customUrl: 'https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Disney/Disney.yaml',
+            customPath: './ruleset/Disney.yaml',
+            customInterval: 86400,
+            customAction: 'PROXY'
+        },
+        'Download': {
+            name: 'Загрузки (DIRECT)',
+            icon: '📥',
+            category: 'other',
+            customType: 'http',
+            customBehavior: 'classical',
+            customFormat: 'list',
+            customUrl: 'https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Download/Download.list',
+            customPath: './ruleset/Download.list',
+            customInterval: 86400,
+            customAction: 'PROXY'
+        },
+        'Epic': {
+            name: 'Epic Games',
+            icon: '🎮',
+            category: 'games',
+            customType: 'http',
+            customBehavior: 'classical',
+            customFormat: 'yaml',
+            customUrl: 'https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Epic/Epic.yaml',
+            customPath: './ruleset/Epic.yaml',
+            customInterval: 86400,
+            customAction: 'PROXY'
+        },
+        'Facebook': {
+            name: 'Facebook',
+            icon: '👤',
+            category: 'social',
+            customType: 'http',
+            customBehavior: 'classical',
+            customFormat: 'yaml',
+            customUrl: 'https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Facebook/Facebook.yaml',
+            customPath: './ruleset/Facebook.yaml',
+            customInterval: 86400,
+            customAction: 'PROXY'
+        },
+        'GitHub': {
+            name: 'GitHub',
+            icon: '🐙',
+            category: 'it',
+            customType: 'http',
+            customBehavior: 'classical',
+            customFormat: 'yaml',
+            customUrl: 'https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/GitHub/GitHub.yaml',
+            customPath: './ruleset/GitHub.yaml',
+            customInterval: 86400,
+            customAction: 'PROXY'
+        },
+        'Google': {
+            name: 'Google',
+            icon: '🔴',
+            category: 'it',
+            customType: 'http',
+            customBehavior: 'classical',
+            customFormat: 'yaml',
+            customUrl: 'https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Google/Google.yaml',
+            customPath: './ruleset/Google.yaml',
+            customInterval: 86400,
+            customAction: 'PROXY'
+        },
+        'HBO': {
+            name: 'HBO',
+            icon: '🎬',
+            category: 'streaming',
+            customType: 'http',
+            customBehavior: 'classical',
+            customFormat: 'yaml',
+            customUrl: 'https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/HBO/HBO.yaml',
+            customPath: './ruleset/HBO.yaml',
+            customInterval: 86400,
+            customAction: 'PROXY'
+        },
+        'Instagram': {
+            name: 'Instagram',
+            icon: '📸',
+            category: 'social',
+            customType: 'http',
+            customBehavior: 'classical',
+            customFormat: 'yaml',
+            customUrl: 'https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Instagram/Instagram.yaml',
+            customPath: './ruleset/Instagram.yaml',
+            customInterval: 86400,
+            customAction: 'PROXY'
+        },
+        'Lan': {
+            name: 'Локальные сети (DIRECT)',
+            icon: '🏠',
+            category: 'it',
+            customType: 'http',
+            customBehavior: 'classical',
+            customFormat: 'yaml',
+            customUrl: 'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Lan/Lan.yaml',
+            customPath: './ruleset/Lan.yaml',
+            customInterval: 86400,
+            customAction: 'PROXY'
+        },
+        'Microsoft': {
+            name: 'Microsoft',
+            icon: '🪟',
+            category: 'work',
+            customType: 'http',
+            customBehavior: 'classical',
+            customFormat: 'yaml',
+            customUrl: 'https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Microsoft/Microsoft.yaml',
+            customPath: './ruleset/Microsoft.yaml',
+            customInterval: 86400,
+            customAction: 'PROXY'
+        },
+        'Netflix': {
+            name: 'Netflix',
+            icon: '🎥',
+            category: 'streaming',
+            customType: 'http',
+            customBehavior: 'classical',
+            customFormat: 'yaml',
+            customUrl: 'https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Netflix/Netflix.yaml',
+            customPath: './ruleset/Netflix.yaml',
+            customInterval: 86400,
+            customAction: 'PROXY'
+        },
+        'PlayStation': {
+            name: 'PlayStation',
+            icon: '🎮',
+            category: 'games',
+            customType: 'http',
+            customBehavior: 'classical',
+            customFormat: 'yaml',
+            customUrl: 'https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/PlayStation/PlayStation.yaml',
+            customPath: './ruleset/PlayStation.yaml',
+            customInterval: 86400,
+            customAction: 'PROXY'
+        },
+        'Reddit': {
+            name: 'Reddit',
+            icon: '🤖',
+            category: 'social',
+            customType: 'http',
+            customBehavior: 'classical',
+            customFormat: 'yaml',
+            customUrl: 'https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Reddit/Reddit.yaml',
+            customPath: './ruleset/Reddit.yaml',
+            customInterval: 86400,
+            customAction: 'PROXY'
+        },
+        'Spotify': {
+            name: 'Spotify',
+            icon: '🎶',
+            category: 'music',
+            customType: 'http',
+            customBehavior: 'classical',
+            customFormat: 'yaml',
+            customUrl: 'https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Spotify/Spotify.yaml',
+            customPath: './ruleset/Spotify.yaml',
+            customInterval: 86400,
+            customAction: 'PROXY'
+        },
+        'Steam': {
+            name: 'Steam (международный)',
+            icon: '🎮',
+            category: 'games',
+            customType: 'http',
+            customBehavior: 'classical',
+            customFormat: 'yaml',
+            customUrl: 'https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Steam/Steam.yaml',
+            customPath: './ruleset/Steam.yaml',
+            customInterval: 86400,
+            customAction: 'PROXY'
+        },
+        'SteamCN': {
+            name: 'Steam Китай (DIRECT)',
+            icon: '🎮',
+            category: 'games',
+            customType: 'http',
+            customBehavior: 'classical',
+            customFormat: 'list',
+            customUrl: 'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/SteamCN/SteamCN.list',
+            customPath: './ruleset/SteamCN.list',
+            customInterval: 86400,
+            customAction: 'PROXY'
+        },
+        'Telegram': {
+            name: 'Telegram',
+            icon: '✈️',
+            category: 'social',
+            customType: 'http',
+            customBehavior: 'classical',
+            customFormat: 'yaml',
+            customUrl: 'https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Telegram/Telegram.yaml',
+            customPath: './ruleset/Telegram.yaml',
+            customInterval: 86400,
+            customAction: 'PROXY'
+        },
+        'TikTok': {
+            name: 'TikTok',
+            icon: '🎵',
+            category: 'social',
+            customType: 'http',
+            customBehavior: 'classical',
+            customFormat: 'yaml',
+            customUrl: 'https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/TikTok/TikTok.yaml',
+            customPath: './ruleset/TikTok.yaml',
+            customInterval: 86400,
+            customAction: 'PROXY'
+        },
+        'Twitch': {
+            name: 'Twitch',
+            icon: '🎮',
+            category: 'streaming',
+            customType: 'http',
+            customBehavior: 'classical',
+            customFormat: 'yaml',
+            customUrl: 'https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Twitch/Twitch.yaml',
+            customPath: './ruleset/Twitch.yaml',
+            customInterval: 86400,
+            customAction: 'PROXY'
+        },
+        'Twitter': {
+            name: 'Twitter/X',
+            icon: '🐦',
+            category: 'social',
+            customType: 'http',
+            customBehavior: 'classical',
+            customFormat: 'yaml',
+            customUrl: 'https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Twitter/Twitter.yaml',
+            customPath: './ruleset/Twitter.yaml',
+            customInterval: 86400,
+            customAction: 'PROXY'
+        },
+        'Xbox': {
+            name: 'Xbox',
+            icon: '🎮',
+            category: 'games',
+            customType: 'http',
+            customBehavior: 'classical',
+            customFormat: 'yaml',
+            customUrl: 'https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Xbox/Xbox.yaml',
+            customPath: './ruleset/Xbox.yaml',
+            customInterval: 86400,
+            customAction: 'PROXY'
+        },
+        'YouTube': {
+            name: 'YouTube',
+            icon: '▶️',
+            category: 'streaming',
+            customType: 'http',
+            customBehavior: 'classical',
+            customFormat: 'yaml',
+            customUrl: 'https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/YouTube/YouTube.yaml',
+            customPath: './ruleset/YouTube.yaml',
+            customInterval: 86400,
+            customAction: 'PROXY'
+        }
     },
-    'Netflix': {
-        name: 'Netflix',
-        icon: '🎥',
-        category: 'streaming',
-        customType: 'http',
-        customBehavior: 'domain',
-        customFormat: 'yaml',
-        customUrl: 'https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Netflix/Netflix.yaml',
-        customPath: './ruleset/Netflix.yaml',
-        customInterval: 86400
-    },
-    'Spotify': {
-        name: 'Spotify',
-        icon: '🎶',
-        category: 'music',
-        customType: 'http',
-        customBehavior: 'domain',
-        customFormat: 'yaml',
-        customUrl: 'https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Spotify/Spotify.yaml',
-        customPath: './ruleset/Spotify.yaml',
-        customInterval: 86400
-    },
-    'Telegram': {
-        name: 'Telegram',
-        icon: '✈️',
-        category: 'social',
-        customType: 'http',
-        customBehavior: 'domain',
-        customFormat: 'yaml',
-        customUrl: 'https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Telegram/Telegram.yaml',
-        customPath: './ruleset/Telegram.yaml',
-        customInterval: 86400
-    },
-    'Twitter': {
-        name: 'Twitter/X',
-        icon: '🐦',
-        category: 'social',
-        customType: 'http',
-        customBehavior: 'domain',
-        customFormat: 'yaml',
-        customUrl: 'https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Twitter/Twitter.yaml',
-        customPath: './ruleset/Twitter.yaml',
-        customInterval: 86400
-    },
-    'Discord': {
-        name: 'Discord',
-        icon: '💬',
-        category: 'social',
-        customType: 'http',
-        customBehavior: 'domain',
-        customFormat: 'yaml',
-        customUrl: 'https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Discord/Discord.yaml',
-        customPath: './ruleset/Discord.yaml',
-        customInterval: 86400
-    },
-    'GitHub': {
-        name: 'GitHub',
-        icon: '🐙',
-        category: 'it',
-        customType: 'http',
-        customBehavior: 'domain',
-        customFormat: 'yaml',
-        customUrl: 'https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/GitHub/GitHub.yaml',
-        customPath: './ruleset/GitHub.yaml',
-        customInterval: 86400
-    },
-    'Google': {
-        name: 'Google',
-        icon: '🔴',
-        category: 'it',
-        customType: 'http',
-        customBehavior: 'domain',
-        customFormat: 'yaml',
-        customUrl: 'https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Google/Google.yaml',
-        customPath: './ruleset/Google.yaml',
-        customInterval: 86400
-    },
-    'Instagram': {
-        name: 'Instagram',
-        icon: '📸',
-        category: 'social',
-        customType: 'http',
-        customBehavior: 'domain',
-        customFormat: 'yaml',
-        customUrl: 'https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Instagram/Instagram.yaml',
-        customPath: './ruleset/Instagram.yaml',
-        customInterval: 86400
-    },
-    'TikTok': {
-        name: 'TikTok',
-        icon: '🎵',
-        category: 'social',
-        customType: 'http',
-        customBehavior: 'domain',
-        customFormat: 'yaml',
-        customUrl: 'https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/TikTok/TikTok.yaml',
-        customPath: './ruleset/TikTok.yaml',
-        customInterval: 86400
-    },
-    'Twitch': {
-        name: 'Twitch',
-        icon: '🎮',
-        category: 'streaming',
-        customType: 'http',
-        customBehavior: 'domain',
-        customFormat: 'yaml',
-        customUrl: 'https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Twitch/Twitch.yaml',
-        customPath: './ruleset/Twitch.yaml',
-        customInterval: 86400
-    },
-    'Reddit': {
-        name: 'Reddit',
-        icon: '🤖',
-        category: 'social',
-        customType: 'http',
-        customBehavior: 'domain',
-        customFormat: 'yaml',
-        customUrl: 'https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Reddit/Reddit.yaml',
-        customPath: './ruleset/Reddit.yaml',
-        customInterval: 86400
-    },
-    'Lan': {
-        name: 'Локальные сети (DIRECT)',
-        icon: '🏠',
-        category: 'it',
-        customType: 'http',
-        customBehavior: 'domain',
-        customFormat: 'yaml',
-        customUrl: 'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Lan/Lan.yaml',
-        customPath: './ruleset/Lan.yaml',
-        customInterval: 86400
-    },
-    'ChinaMax': {
-        name: 'Китайские домены (DIRECT)',
-        icon: '🇨🇳',
-        category: 'it',
-        customType: 'http',
-        customBehavior: 'domain',
-        customFormat: 'yaml',
-        customUrl: 'https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/ChinaMax/ChinaMax.yaml',
-        customPath: './ruleset/ChinaMax.yaml',
-        customInterval: 86400
-    },
-    'SteamCN': {
-        name: 'Steam Китай (DIRECT)',
-        icon: '🎮',
-        category: 'games',
-        customType: 'http',
-        customBehavior: 'domain',
-        customFormat: 'list',
-        customUrl: 'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/SteamCN/SteamCN.list',
-        customPath: './ruleset/SteamCN.list',
-        customInterval: 86400
-    },
-    'Download': {
-        name: 'Загрузки (DIRECT)',
-        icon: '📥',
-        category: 'other',
-        customType: 'http',
-        customBehavior: 'domain',
-        customFormat: 'list',
-        customUrl: 'https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Download/Download.list',
-        customPath: './ruleset/Download.list',
-        customInterval: 86400
-    },
-    'AdvertisingTest': {
-        name: 'Реклама и трекеры (REJECT)',
-        icon: '🚫',
-        category: 'other',
-        customType: 'http',
-        customBehavior: 'domain',
-        customFormat: 'list',
-        customUrl: 'https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/AdvertisingTest/AdvertisingTest.list',
-        customPath: './ruleset/AdvertisingTest.list',
-        customInterval: 86400
-    },
-    'Facebook': {
-        name: 'Facebook',
-        icon: '👤',
-        category: 'social',
-        customType: 'http',
-        customBehavior: 'domain',
-        customFormat: 'yaml',
-        customUrl: 'https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Facebook/Facebook.yaml',
-        customPath: './ruleset/Facebook.yaml',
-        customInterval: 86400
-    },
-    'Microsoft': {
-        name: 'Microsoft',
-        icon: '🪟',
-        category: 'work',
-        customType: 'http',
-        customBehavior: 'domain',
-        customFormat: 'yaml',
-        customUrl: 'https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Microsoft/Microsoft.yaml',
-        customPath: './ruleset/Microsoft.yaml',
-        customInterval: 86400
-    },
-    'Apple': {
-        name: 'Apple',
-        icon: '🍎',
-        category: 'other',
-        customType: 'http',
-        customBehavior: 'domain',
-        customFormat: 'yaml',
-        customUrl: 'https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Apple/Apple.yaml',
-        customPath: './ruleset/Apple.yaml',
-        customInterval: 86400
-    },
-    'Amazon': {
-        name: 'Amazon',
-        icon: '🛒',
-        category: 'shopping',
-        customType: 'http',
-        customBehavior: 'domain',
-        customFormat: 'yaml',
-        customUrl: 'https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Amazon/Amazon.yaml',
-        customPath: './ruleset/Amazon.yaml',
-        customInterval: 86400
-    },
-    'Steam': {
-        name: 'Steam (международный)',
-        icon: '🎮',
-        category: 'games',
-        customType: 'http',
-        customBehavior: 'domain',
-        customFormat: 'yaml',
-        customUrl: 'https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Steam/Steam.yaml',
-        customPath: './ruleset/Steam.yaml',
-        customInterval: 86400
-    },
-    'Epic': {
-        name: 'Epic Games',
-        icon: '🎮',
-        category: 'games',
-        customType: 'http',
-        customBehavior: 'domain',
-        customFormat: 'yaml',
-        customUrl: 'https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Epic/Epic.yaml',
-        customPath: './ruleset/Epic.yaml',
-        customInterval: 86400
-    },
-    'Xbox': {
-        name: 'Xbox',
-        icon: '🎮',
-        category: 'games',
-        customType: 'http',
-        customBehavior: 'domain',
-        customFormat: 'yaml',
-        customUrl: 'https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Xbox/Xbox.yaml',
-        customPath: './ruleset/Xbox.yaml',
-        customInterval: 86400
-    },
-    'PlayStation': {
-        name: 'PlayStation',
-        icon: '🎮',
-        category: 'games',
-        customType: 'http',
-        customBehavior: 'domain',
-        customFormat: 'yaml',
-        customUrl: 'https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/PlayStation/PlayStation.yaml',
-        customPath: './ruleset/PlayStation.yaml',
-        customInterval: 86400
-    },
-    'Disney': {
-        name: 'Disney+',
-        icon: '🏰',
-        category: 'streaming',
-        customType: 'http',
-        customBehavior: 'domain',
-        customFormat: 'yaml',
-        customUrl: 'https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Disney/Disney.yaml',
-        customPath: './ruleset/Disney.yaml',
-        customInterval: 86400
-    },
-    'HBO': {
-        name: 'HBO',
-        icon: '🎬',
-        category: 'streaming',
-        customType: 'http',
-        customBehavior: 'domain',
-        customFormat: 'yaml',
-        customUrl: 'https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/HBO/HBO.yaml',
-        customPath: './ruleset/HBO.yaml',
-        customInterval: 86400
-    }
-},
 
     // ===== DustinWin =====
     dustinwin: {
@@ -1106,8 +1133,12 @@ function downloadConfig() {
         return;
     }
 
-    // Формируем секцию rules (для всех выбранных правил — PROXY)
-    const rulesSection = selectedRuleNames.map(key => `  - RULE-SET,${key},PROXY`).join('\n');
+    // Формируем секцию rules с учётом customAction
+    const rulesSection = selectedRuleNames.map(key => {
+        const rule = rules[key];
+        const action = rule.customAction || 'PROXY';
+        return `  - RULE-SET,${key},${action}`;
+    }).join('\n');
 
     const header = `# Mihomo Ruleset
 # Автор: ${author.name}
