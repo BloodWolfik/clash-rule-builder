@@ -349,43 +349,43 @@ const RULES_BY_AUTHOR = {
         }
     },
 
-    // ===== ACL4SSR =====
-    acl4ssr: {
-        'Advertising': { name: 'Реклама (общая)', icon: '🚫', category: 'other' },
-        'AdvertisingLite': { name: 'Реклама (легкая)', icon: '🔕', category: 'other' },
-        'AdvertisingEasy': { name: 'Реклама (базовая)', icon: '📢', category: 'other' },
-        'BanProgramAD': { name: 'Реклама в программах', icon: '💻', category: 'other' },
-        'AppStore': { name: 'App Store', icon: '📱', category: 'other' },
-        'China': { name: 'Китайские сайты', icon: '🇨🇳', category: 'it' },
-        'ChinaCompany': { name: 'Китайские компании', icon: '🏢', category: 'it' },
-        'ChinaMedia': { name: 'Китайские медиа', icon: '📺', category: 'streaming' },
-        'ChinaIP': { name: 'Китайские IP', icon: '🌐', category: 'it' },
-        'DNS': { name: 'DNS', icon: '🌐', category: 'security' },
-        'Google': { name: 'Google', icon: '🔴', category: 'it' },
-        'Netflix': { name: 'Netflix', icon: '🎥', category: 'streaming' },
-        'Youtube': { name: 'YouTube', icon: '▶️', category: 'streaming' },
-        'Spotify': { name: 'Spotify', icon: '🎶', category: 'music' },
-        'Steam': { name: 'Steam', icon: '🎮', category: 'games' },
-        'SteamChina': { name: 'Steam Китай', icon: '🎮', category: 'games' },
-        'Epic': { name: 'Epic Games', icon: '🎮', category: 'games' },
-        'Xbox': { name: 'Xbox', icon: '🎮', category: 'games' },
-        'PlayStation': { name: 'PlayStation', icon: '🎮', category: 'games' },
-        'Telegram': { name: 'Telegram', icon: '✈️', category: 'social' },
-        'Twitter': { name: 'Twitter/X', icon: '🐦', category: 'social' },
-        'Facebook': { name: 'Facebook', icon: '👤', category: 'social' },
-        'Instagram': { name: 'Instagram', icon: '📸', category: 'social' },
-        'TikTok': { name: 'TikTok', icon: '🎵', category: 'social' },
-        'Reddit': { name: 'Reddit', icon: '🤖', category: 'social' },
-        'Discord': { name: 'Discord', icon: '💬', category: 'social' },
-        'GitHub': { name: 'GitHub', icon: '🐙', category: 'it' },
-        'Microsoft': { name: 'Microsoft', icon: '🪟', category: 'work' },
-        'Apple': { name: 'Apple', icon: '🍎', category: 'other' },
-        'Amazon': { name: 'Amazon', icon: '🛒', category: 'shopping' },
-        'Disney': { name: 'Disney+', icon: '🏰', category: 'streaming' },
-        'HBO': { name: 'HBO', icon: '🎬', category: 'streaming' },
-        'Hulu': { name: 'Hulu', icon: '📺', category: 'streaming' },
-        'Bilibili': { name: 'Bilibili', icon: '📺', category: 'streaming' }
-    },
+acl4ssr: {
+    // === ОСНОВНЫЕ ДЛЯ РФ ===
+    'ProxyGFWlist_domain': { name: 'GFW список (полный)', icon: '🧱', category: 'it' },
+    'ProxyLite_domain': { name: 'GFW список (легкий)', icon: '🔰', category: 'it' },
+    
+    'ChinaIp_ip': { name: 'Китайские IP', icon: '🇨🇳', category: 'it' },
+    'ChinaDomain_domain': { name: 'Китайские домены', icon: '🇨🇳', category: 'it' },
+    
+    'Telegram_domain': { name: 'Telegram', icon: '✈️', category: 'social' },
+    'YouTube_domain': { name: 'YouTube', icon: '▶️', category: 'streaming' },
+    'Netflix_domain': { name: 'Netflix', icon: '🎥', category: 'streaming' },
+    'Spotify_domain': { name: 'Spotify', icon: '🎶', category: 'music' },
+    'Discord_domain': { name: 'Discord', icon: '💬', category: 'social' },
+    'Twitter_domain': { name: 'Twitter/X', icon: '🐦', category: 'social' },
+    'Instagram_domain': { name: 'Instagram', icon: '📸', category: 'social' },
+    'TikTok_domain': { name: 'TikTok', icon: '🎵', category: 'social' },
+    'Reddit_domain': { name: 'Reddit', icon: '🤖', category: 'social' },
+    'Twitch_domain': { name: 'Twitch', icon: '🎮', category: 'streaming' },
+    
+    'Steam_domain': { name: 'Steam', icon: '🎮', category: 'games' },
+    'SteamCN_domain': { name: 'Steam Китай (CDN)', icon: '🎮', category: 'games' },
+    'Epic_domain': { name: 'Epic Games', icon: '🎮', category: 'games' },
+    'Xbox_domain': { name: 'Xbox', icon: '🎮', category: 'games' },
+    'Blizzard_domain': { name: 'Blizzard', icon: '🎮', category: 'games' },
+    
+    'Apple_domain': { name: 'Apple', icon: '🍎', category: 'other' },
+    'Microsoft_domain': { name: 'Microsoft', icon: '🪟', category: 'work' },
+    'Google_domain': { name: 'Google', icon: '🔴', category: 'it' },
+    'Amazon_domain': { name: 'Amazon', icon: '🛒', category: 'shopping' },
+    'Github_domain': { name: 'GitHub', icon: '🐙', category: 'it' },
+    'OpenAi_domain': { name: 'OpenAI', icon: '🤖', category: 'it' },
+    
+    // === ЗАЩИТНЫЕ (антиреклама) ===
+    'BanAD_domain': { name: 'Блокировка рекламы', icon: '🚫', category: 'other' },
+    'BanProgramAD_domain': { name: 'Реклама в программах', icon: '💻', category: 'other' },
+    'BanEasyListChina_domain': { name: 'EasyList Китай', icon: '🚫', category: 'other' }
+},
 
     // ===== v2ray-rules-dat =====
     v2ray: {
