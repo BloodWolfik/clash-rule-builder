@@ -20,11 +20,11 @@ const AUTHORS = {
         description: 'Правила для обхода блокировок РКН',
         rating: 4
     },
-    v2ray: {
-        name: 'v2ray-rules-dat',
-        baseUrl: 'https://cdn.jsdelivr.net/gh/v2ray/v2ray-core/release/config/',
-        description: 'Расширенная база geoip.dat и geosite.dat для V2Ray/Xray',
-        rating: 4
+    loyalsoldier: {
+        name: 'Loyalsoldier (GEO)',
+        baseUrl: 'https://cdn.jsdelivr.net/gh/Loyalsoldier/v2ray-rules-dat@release/',
+        description: 'Самый свежий и полный набор геоданных (geoip.dat / geosite.dat)',
+        rating: 5
     },
     blackmatrix7: {
         name: 'BlackMatrix7',
@@ -343,24 +343,32 @@ const RULES_BY_AUTHOR = {
         }
     },
 
-    // ===== v2ray-rules-dat =====
-    v2ray: {
-        'geoip-cn': { name: 'GeoIP Китай', icon: '🇨🇳', category: 'it' },
-        'geoip-hk': { name: 'GeoIP Гонконг', icon: '🇭🇰', category: 'it' },
-        'geoip-tw': { name: 'GeoIP Тайвань', icon: '🇹🇼', category: 'it' },
-        'geoip-mo': { name: 'GeoIP Макао', icon: '🇲🇴', category: 'it' },
-        'geoip-us': { name: 'GeoIP США', icon: '🇺🇸', category: 'it' },
-        'geoip-jp': { name: 'GeoIP Япония', icon: '🇯🇵', category: 'it' },
-        'geoip-kr': { name: 'GeoIP Корея', icon: '🇰🇷', category: 'it' },
-        'geoip-de': { name: 'GeoIP Германия', icon: '🇩🇪', category: 'it' },
-        'geoip-gb': { name: 'GeoIP Великобритания', icon: '🇬🇧', category: 'it' },
-        'geoip-fr': { name: 'GeoIP Франция', icon: '🇫🇷', category: 'it' },
-        'geosite-cn': { name: 'GeoSite Китай', icon: '🏷️', category: 'it' },
-        'geosite-category-ads': { name: 'GeoSite Реклама', icon: '🚫', category: 'other' },
-        'geosite-category-porn': { name: 'GeoSite 18+', icon: '🔞', category: 'other' },
-        'geosite-category-social': { name: 'GeoSite Соцсети', icon: '🌐', category: 'social' },
-        'geosite-category-games': { name: 'GeoSite Игры', icon: '🎮', category: 'games' },
-        'geosite-category-media': { name: 'GeoSite Медиа', icon: '📺', category: 'streaming' }
+    // ===== Loyalsoldier (GEO) - ОСНОВНОЙ ИСТОЧНИК ГЕОДАННЫХ =====
+    loyalsoldier: {
+        'geoip': {
+            name: 'GeoIP (IP-адреса)',
+            icon: '🌍',
+            category: 'it',
+            description: 'Самый свежий geoip.dat от Loyalsoldier (категории: cn, us, ru, telegram, netflix и др.)',
+            customType: 'http',
+            customBehavior: 'ipcidr',
+            customFormat: 'dat',
+            customUrl: 'https://cdn.jsdelivr.net/gh/Loyalsoldier/v2ray-rules-dat@release/geoip.dat',
+            customPath: './ruleset/geoip.dat',
+            customInterval: 86400
+        },
+        'geosite': {
+            name: 'GeoSite (домены)',
+            icon: '🏷️',
+            category: 'it',
+            description: 'Самый свежий geosite.dat от Loyalsoldier (категории: google, youtube, cn, category-ads-all и др.)',
+            customType: 'http',
+            customBehavior: 'domain',
+            customFormat: 'dat',
+            customUrl: 'https://cdn.jsdelivr.net/gh/Loyalsoldier/v2ray-rules-dat@release/geosite.dat',
+            customPath: './ruleset/geosite.dat',
+            customInterval: 86400
+        }
     },
 
     // ===== BlackMatrix7 =====
