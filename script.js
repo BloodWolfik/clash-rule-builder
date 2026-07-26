@@ -20,12 +20,6 @@ const AUTHORS = {
         description: 'Правила для обхода блокировок РКН',
         rating: 4
     },
-    loyalsoldier: {
-        name: 'Loyalsoldier (Clash)',
-        baseUrl: 'https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/',
-        description: 'Классический набор правил Clash (GFW, реклама, прямые домены)',
-        rating: 5
-    },
     v2ray: {
         name: 'v2ray-rules-dat',
         baseUrl: 'https://cdn.jsdelivr.net/gh/v2ray/v2ray-core/release/config/',
@@ -347,29 +341,6 @@ const RULES_BY_AUTHOR = {
             customPath: './ruleset/russia-blocked-domain.dat',
             customInterval: 43200
         }
-    },
-
-    // ===== Loyalsoldier =====
-    loyalsoldier: {
-        'direct': { name: 'Прямые домены', icon: '➡️', category: 'it' },
-        'proxy': { name: 'Прокси домены', icon: '🔄', category: 'it' },
-        'reject': { name: 'Реклама и трекеры', icon: '🚫', category: 'other' },
-        'gfw': { name: 'GFW List', icon: '🧱', category: 'it' },
-        'telegram': { name: 'Telegram', icon: '✈️', category: 'social' },
-        'google': { name: 'Google', icon: '🔴', category: 'it' },
-        'youtube': { name: 'YouTube', icon: '▶️', category: 'streaming' },
-        'netflix': { name: 'Netflix', icon: '🎥', category: 'streaming' },
-        'spotify': { name: 'Spotify', icon: '🎶', category: 'music' },
-        'steam': { name: 'Steam', icon: '🎮', category: 'games' },
-        'discord': { name: 'Discord', icon: '💬', category: 'social' },
-        'twitter': { name: 'Twitter/X', icon: '🐦', category: 'social' },
-        'facebook': { name: 'Facebook', icon: '👤', category: 'social' },
-        'instagram': { name: 'Instagram', icon: '📸', category: 'social' },
-        'tiktok': { name: 'TikTok', icon: '🎵', category: 'social' },
-        'reddit': { name: 'Reddit', icon: '🤖', category: 'social' },
-        'twitch': { name: 'Twitch', icon: '🎮', category: 'streaming' },
-        'github': { name: 'GitHub', icon: '🐙', category: 'it' },
-        'microsoft': { name: 'Microsoft', icon: '🪟', category: 'work' }
     },
 
     // ===== v2ray-rules-dat =====
