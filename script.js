@@ -327,7 +327,7 @@ metacubex: {
         customPath: './ruleset/discord.mrs',
         customInterval: 86400
     }
-}
+},
 
     // ===== RunetFreedom =====
     runetfreedom: {
