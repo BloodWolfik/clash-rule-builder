@@ -11,7 +11,7 @@ const AUTHORS = {
     metacubex: {
         name: 'MetaCubeX (GEO)',
         baseUrl: 'https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@release/',
-        description: 'Универсальные геоданные для маршрутизации (geoip.dat / geosite.dat)',
+        description: 'Универсальные геоданные и отдельные правила для популярных сервисов',
         rating: 5
     },
     runetfreedom: {
@@ -80,40 +80,41 @@ const AUTHORS = {
 // ПРАВИЛА ДЛЯ КАЖДОГО АВТОРА
 // ============================================
 const RULES_BY_AUTHOR = {
-// ===== hydraponique (обновлён по актуальному списку) =====
-hydraponique: {
-    'apple': { name: 'Apple', icon: '🍎', category: 'other' },
-    'category-ads': { name: 'Блокировка рекламы', icon: '🚫', category: 'other' },
-    'category-geoblock-ru': { name: 'GeoBlock РФ', icon: '🇷🇺', category: 'security' },
-    'category-ru': { name: 'Российские сайты', icon: '🪆', category: 'other' },
-    'epicgames': { name: 'Epic Games', icon: '🎮', category: 'games' },
-    'escapefromtarkov': { name: 'Escape from Tarkov', icon: '🔫', category: 'games' },
-    'faceit': { name: 'Faceit', icon: '⚔️', category: 'games' },
-    'github': { name: 'GitHub', icon: '🐙', category: 'it' },
-    'google-deepmind': { name: 'Google DeepMind', icon: '🧠', category: 'it' },
-    'google-play': { name: 'Google Play', icon: '📱', category: 'other' },
-    'microsoft': { name: 'Microsoft', icon: '🪟', category: 'work' },
-    'origin': { name: 'Origin (EA)', icon: '🎮', category: 'games' },
-    'pinterest': { name: 'Pinterest', icon: '📌', category: 'social' },
-    'private': { name: 'Приватные сети', icon: '🔒', category: 'security' },
-    'riot': { name: 'Riot Games', icon: '🎮', category: 'games' },
-    'steam': { name: 'Steam', icon: '🎮', category: 'games' },
-    'telegram': { name: 'Telegram', icon: '✈️', category: 'social' },
-    'torrent': { name: 'Торренты', icon: '🧲', category: 'other' },
-    'twitch-ads': { name: 'Реклама Twitch', icon: '📺', category: 'other' },
-    'twitch': { name: 'Twitch', icon: '🎮', category: 'streaming' },
-    'whitelist': { name: 'Белый список', icon: '✅', category: 'other' },
-    'win-spy': { name: 'Трекинг Windows', icon: '🪟', category: 'security' },
-    'youtube': { name: 'YouTube', icon: '▶️', category: 'streaming' }
-},
+    // ===== hydraponique (обновлён по актуальному списку) =====
+    hydraponique: {
+        'apple': { name: 'Apple', icon: '🍎', category: 'other' },
+        'category-ads': { name: 'Блокировка рекламы', icon: '🚫', category: 'other' },
+        'category-geoblock-ru': { name: 'GeoBlock РФ', icon: '🇷🇺', category: 'security' },
+        'category-ru': { name: 'Российские сайты', icon: '🪆', category: 'other' },
+        'epicgames': { name: 'Epic Games', icon: '🎮', category: 'games' },
+        'escapefromtarkov': { name: 'Escape from Tarkov', icon: '🔫', category: 'games' },
+        'faceit': { name: 'Faceit', icon: '⚔️', category: 'games' },
+        'github': { name: 'GitHub', icon: '🐙', category: 'it' },
+        'google-deepmind': { name: 'Google DeepMind', icon: '🧠', category: 'it' },
+        'google-play': { name: 'Google Play', icon: '📱', category: 'other' },
+        'microsoft': { name: 'Microsoft', icon: '🪟', category: 'work' },
+        'origin': { name: 'Origin (EA)', icon: '🎮', category: 'games' },
+        'pinterest': { name: 'Pinterest', icon: '📌', category: 'social' },
+        'private': { name: 'Приватные сети', icon: '🔒', category: 'security' },
+        'riot': { name: 'Riot Games', icon: '🎮', category: 'games' },
+        'steam': { name: 'Steam', icon: '🎮', category: 'games' },
+        'telegram': { name: 'Telegram', icon: '✈️', category: 'social' },
+        'torrent': { name: 'Торренты', icon: '🧲', category: 'other' },
+        'twitch-ads': { name: 'Реклама Twitch', icon: '📺', category: 'other' },
+        'twitch': { name: 'Twitch', icon: '🎮', category: 'streaming' },
+        'whitelist': { name: 'Белый список', icon: '✅', category: 'other' },
+        'win-spy': { name: 'Трекинг Windows', icon: '🪟', category: 'security' },
+        'youtube': { name: 'YouTube', icon: '▶️', category: 'streaming' }
+    },
 
-    // ===== MetaCubeX (GEO) — ИСПРАВЛЕН =====
+    // ===== MetaCubeX (GEO) — ОБНОВЛЁН =====
     metacubex: {
+        // --- БОЛЬШИЕ УНИВЕРСАЛЬНЫЕ ФАЙЛЫ ---
         'geoip': {
-            name: 'GeoIP (IP-адреса)',
+            name: 'GeoIP (все IP)',
             icon: '🌍',
             category: 'it',
-            description: 'Категории: cn, private, cloudflare, cloudfront, facebook, fastly, google, netflix, telegram, twitter, apple, bilibili и другие',
+            description: 'Универсальный geoip.dat со всеми категориями',
             customType: 'http',
             customBehavior: 'ipcidr',
             customFormat: 'dat',
@@ -122,15 +123,85 @@ hydraponique: {
             customInterval: 86400
         },
         'geosite': {
-            name: 'GeoSite (домены)',
+            name: 'GeoSite (все домены)',
             icon: '🏷️',
             category: 'it',
-            description: 'Категории: google, youtube, twitter, facebook, openai, telegram, netflix, discord, github, cn, gfwlist, category-ads-all, geolocation-!cn, steam, biliintl и другие',
+            description: 'Универсальный geosite.dat со всеми категориями',
             customType: 'http',
             customBehavior: 'domain',
             customFormat: 'dat',
             customUrl: 'https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@release/geosite.dat',
             customPath: './ruleset/geosite.dat',
+            customInterval: 86400
+        },
+
+        // --- ОТДЕЛЬНЫЕ ПРАВИЛА ДЛЯ IP (GEOIP) ---
+        'apple-ip': {
+            name: 'Apple (IP)',
+            icon: '🍎',
+            category: 'other',
+            customType: 'http',
+            customBehavior: 'ipcidr',
+            customFormat: 'mrs',
+            customUrl: 'https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo-lite/geoip/apple.mrs',
+            customPath: './ruleset/apple-ip.mrs',
+            customInterval: 86400
+        },
+        'cloudflare-ip': {
+            name: 'Cloudflare (IP)',
+            icon: '☁️',
+            category: 'it',
+            customType: 'http',
+            customBehavior: 'ipcidr',
+            customFormat: 'mrs',
+            customUrl: 'https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo-lite/geoip/cloudflare.mrs',
+            customPath: './ruleset/cloudflare-ip.mrs',
+            customInterval: 86400
+        },
+        'private-ip': {
+            name: 'Приватные IP',
+            icon: '🔒',
+            category: 'security',
+            customType: 'http',
+            customBehavior: 'ipcidr',
+            customFormat: 'mrs',
+            customUrl: 'https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo-lite/geoip/private.mrs',
+            customPath: './ruleset/private-ip.mrs',
+            customInterval: 86400
+        },
+        'telegram-ip': {
+            name: 'Telegram (IP)',
+            icon: '✈️',
+            category: 'social',
+            customType: 'http',
+            customBehavior: 'ipcidr',
+            customFormat: 'mrs',
+            customUrl: 'https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo-lite/geoip/telegram.mrs',
+            customPath: './ruleset/telegram-ip.mrs',
+            customInterval: 86400
+        },
+
+        // --- ОТДЕЛЬНЫЕ ПРАВИЛА ДЛЯ ДОМЕНОВ (GEOSITE) ---
+        'telegram-domain': {
+            name: 'Telegram (домены)',
+            icon: '✈️',
+            category: 'social',
+            customType: 'http',
+            customBehavior: 'domain',
+            customFormat: 'mrs',
+            customUrl: 'https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo-lite/geosite/telegram.mrs',
+            customPath: './ruleset/telegram-domain.mrs',
+            customInterval: 86400
+        },
+        'youtube-domain': {
+            name: 'YouTube (домены)',
+            icon: '▶️',
+            category: 'streaming',
+            customType: 'http',
+            customBehavior: 'domain',
+            customFormat: 'mrs',
+            customUrl: 'https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo-lite/geosite/youtube.mrs',
+            customPath: './ruleset/youtube-domain.mrs',
             customInterval: 86400
         }
     },
@@ -661,6 +732,7 @@ function updateSelectedCount() {
 function downloadConfig() {
     const checkboxes = document.querySelectorAll('.rule-card:not(.hidden) input[type="checkbox"]');
     const selectedRules = [];
+    const selectedRuleNames = [];
     const author = AUTHORS[currentAuthor];
     const rules = getCurrentRules();
     
@@ -669,26 +741,21 @@ function downloadConfig() {
             const card = checkbox.closest('.rule-card');
             const key = card.dataset.rule;
             const rule = rules[key];
+            selectedRuleNames.push(key);
             
-            // Проверяем, есть ли у правила кастомные параметры
+            // Формируем rule-providers
             if (rule.customType) {
-                // Для кастомных правил (runetfreedom, legiz и др.)
                 let ruleString = `  ${key}:
     type: ${rule.customType}
     behavior: ${rule.customBehavior || 'domain'}`;
-                
-                // Добавляем format, если он указан
                 if (rule.customFormat) {
                     ruleString += `\n    format: ${rule.customFormat}`;
                 }
-                
                 ruleString += `\n    url: "${rule.customUrl}"
     path: ${rule.customPath}
     interval: ${rule.customInterval}`;
-                
                 selectedRules.push(ruleString);
             } else {
-                // Стандартный формат для остальных авторов
                 selectedRules.push(`  ${key}:
     type: http
     behavior: domain
@@ -705,6 +772,9 @@ function downloadConfig() {
         return;
     }
 
+    // Формируем секцию rules (для всех выбранных правил — PROXY)
+    const rulesSection = selectedRuleNames.map(key => `  - RULE-SET,${key},PROXY`).join('\n');
+
     const header = `# Mihomo Ruleset
 # Автор: ${author.name}
 # Сгенерировано: ${new Date().toLocaleString()}
@@ -712,6 +782,10 @@ function downloadConfig() {
 
 rule-providers:
 ${selectedRules.join('\n')}
+
+rules:
+${rulesSection}
+  - MATCH,DIRECT
 `;
 
     const blob = new Blob([header], { type: 'text/yaml' });
